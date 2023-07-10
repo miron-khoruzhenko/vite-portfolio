@@ -10,6 +10,28 @@ const Coarusell = () => {
 	const ulContainerRef = useRef<HTMLInputElement>(null);
 
 	const [ulWidth, setUlWitdth] = useState(0);
+	const [sliderPosition, setSliderPosition] = useState(0)
+	const [isTicking, setIsTicking] = useState(false)
+	// const [disableTransition, setDisableTransition] = useState(false)
+
+	const handleSliderLeftBtn = () => {
+		setSliderPosition(sliderPosition + 1)
+	}
+
+	const handleSliderRightBtn = () => {
+		setSliderPosition(sliderPosition - 1)
+	}
+
+	const handleResize = () => {
+		if(ulContainerRef?.current?.offsetWidth){
+			setUlWitdth(ulContainerRef.current.clientWidth)
+			console.log(ulContainerRef.current.clientWidth)
+		}
+	}
+
+	const sleep = (ms = 0) => {
+		return new Promise((resolve) => setTimeout(resolve, ms));
+	};
 
 	useEffect(()=>{
 		if(ulContainerRef?.current?.offsetWidth){
@@ -24,18 +46,24 @@ const Coarusell = () => {
 		}
 	}, [])
 
-	const handleResize = () => {
-		if(ulContainerRef?.current?.offsetWidth){
-			setUlWitdth(ulContainerRef.current.clientWidth)
-			console.log(ulContainerRef.current.clientWidth)
+	useEffect(()=>{
+		if(isTicking){
+			sleep(300).then(()=>{
+				setIsTicking(false)
+
+			})
 		}
-	}
+	},[isTicking])
+
+
 
 	return (
 		<div className={styles.container}>
 			{/* Стрелка налево */}
 			<div className="">
-				<button className={styles.btn + styles.btnLeft}/>
+				<button 
+					className={styles.btn + styles.btnLeft} 
+					onClick={handleSliderLeftBtn}/>
 			</div>
 
 			<div className={styles.div} ref={ulContainerRef}>
@@ -44,6 +72,7 @@ const Coarusell = () => {
 					{items.map((item) => {
 						return (
 							<Card 
+								sliderPosition={sliderPosition}
 								img={item.img} 
 								title={item.title} 
 								link={item.link}
@@ -58,7 +87,9 @@ const Coarusell = () => {
 
 			{/* Стрелка направо */}
 			<div>
-				<button className={styles.btn + styles.btnRight}/>
+				<button 
+					className={styles.btn + styles.btnRight}
+					onClick={handleSliderRightBtn}/>
 			</div>
 			
 		</div>

@@ -14,12 +14,20 @@ const Coarusell = () => {
 	const [isTicking, setIsTicking] = useState(false)
 	// const [disableTransition, setDisableTransition] = useState(false)
 
-	const handleSliderLeftBtn = () => {
-		setSliderPosition(sliderPosition + 1)
-	}
 
-	const handleSliderRightBtn = () => {
-		setSliderPosition(sliderPosition - 1)
+
+		const twistSlider = (direction : string | null) => {
+		if(!isTicking){
+
+			// TODO: сделай обработку негативных чисел
+
+			if(direction === 'prev'){
+				setSliderPosition(sliderPosition + 1)
+			}else if(direction === 'next'){
+				setSliderPosition(sliderPosition - 1)
+			}
+			setIsTicking(true)
+		}
 	}
 
 	const handleResize = () => {
@@ -39,7 +47,7 @@ const Coarusell = () => {
 		}
 		addEventListener('resize', handleResize)
 
-		console.warn('Coarusell rendered')
+		console.log('Coarusell rendered')
 
 		return ()=>{
 			removeEventListener('resize', handleResize)
@@ -50,20 +58,24 @@ const Coarusell = () => {
 		if(isTicking){
 			sleep(300).then(()=>{
 				setIsTicking(false)
-
 			})
 		}
 	},[isTicking])
 
-
+	useEffect(()=>{
+		console.log('sliderPosition:', sliderPosition)
+		console.log('sliderPosition % items.length + 1:', sliderPosition % items.length + 1)
+	}, [sliderPosition])
 
 	return (
 		<div className={styles.container}>
 			{/* Стрелка налево */}
 			<div className="">
 				<button 
+					data-direction="prev"
 					className={styles.btn + styles.btnLeft} 
-					onClick={handleSliderLeftBtn}/>
+					// onClick={handleSliderLeftBtn}/>
+					onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
 			</div>
 
 			<div className={styles.div} ref={ulContainerRef}>
@@ -72,7 +84,7 @@ const Coarusell = () => {
 					{items.map((item) => {
 						return (
 							<Card 
-								sliderPosition={sliderPosition}
+								sliderPosition={sliderPosition % items.length + 1}
 								img={item.img} 
 								title={item.title} 
 								link={item.link}
@@ -83,18 +95,34 @@ const Coarusell = () => {
 					})}
 				</ul>
 
+				<div className="text-center space-x-2">
+					{
+						items.map((item)=>{
+							
+							return(
+								<span 
+									className={styles.dot + (sliderPosition % items.length  === item.index ? 'bg-white ' : 'bg-zinc-400 ')} 
+									key={item.index + 'dot'}
+									data-index={item.index}></span>
+							)
+						})
+					}
+				</div>
+
 			</div>
 
 			{/* Стрелка направо */}
 			<div>
 				<button 
+					data-direction="next"
 					className={styles.btn + styles.btnRight}
-					onClick={handleSliderRightBtn}/>
+					onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
 			</div>
 			
 		</div>
 	)
 }
+
 
 const styles = {
 	container : "container my-4 mx-auto flex justify-center items-center gap-4 px-5",
@@ -102,7 +130,8 @@ const styles = {
 	ul : "gap-8 relative overflow-hidden w-max " + sliderHeight,
 	btn : " text-white text-5xl font-bold w-10 h-10 rotate-45 z-10",
 	btnLeft : " border-l-4 border-b-4 -mr-6 ",
-	btnRight : " border-t-4 border-r-4 -ml-6 "
+	btnRight : " border-t-4 border-r-4 -ml-6 ",
+	dot : "inline-block w-2 h-2 rounded-full cursor-pointer ",
 }
 
 export default Coarusell

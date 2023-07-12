@@ -17,15 +17,20 @@ const Coarusell = () => {
 
 
 		const twistSlider = (direction : string | null) => {
-		if(!isTicking){
+			if(!isTicking){
+			console.log(direction)
 
-			// TODO: сделай обработку негативных чисел
+			// TODO: сделай обработку негативных чисел и округление
+			let position = sliderPosition
 
 			if(direction === 'prev'){
-				setSliderPosition(sliderPosition + 1)
+				position += 1;
 			}else if(direction === 'next'){
-				setSliderPosition(sliderPosition - 1)
+				position -= 1;
 			}
+			// Что бы не было перебора но и небыло начала с нуля
+			position = position % items.length + 1
+			setSliderPosition(position)
 			setIsTicking(true)
 		}
 	}
@@ -84,7 +89,7 @@ const Coarusell = () => {
 					{items.map((item) => {
 						return (
 							<Card 
-								sliderPosition={sliderPosition % items.length + 1}
+								sliderPosition={sliderPosition}
 								img={item.img} 
 								title={item.title} 
 								link={item.link}

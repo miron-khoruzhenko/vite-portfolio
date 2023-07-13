@@ -7,6 +7,8 @@ const sliderHeight = 'h-60'
 
 const Coarusell = () => {
 
+	const itemsList = [...items.slice(1,3), ...items, ...items.slice(-2)]
+
 	const ulContainerRef = useRef<HTMLInputElement>(null);
 
 	const [ulWidth, setUlWitdth] = useState(0);
@@ -14,6 +16,7 @@ const Coarusell = () => {
 	const [isTicking, setIsTicking] = useState(false)
 	// const [disableTransition, setDisableTransition] = useState(false)
 
+	// ==== Functions ====================================
 
 
 		const twistSlider = (direction : string | null) => {
@@ -29,7 +32,10 @@ const Coarusell = () => {
 				position -= 1;
 			}
 			// Что бы не было перебора но и небыло начала с нуля
-			position = position % items.length + 1
+			if(position < 0){
+				position += items.length
+			}
+			position = position % items.length
 			setSliderPosition(position)
 			setIsTicking(true)
 		}
@@ -45,6 +51,8 @@ const Coarusell = () => {
 	const sleep = (ms = 0) => {
 		return new Promise((resolve) => setTimeout(resolve, ms));
 	};
+
+	// ==== useEffects ====================================
 
 	useEffect(()=>{
 		if(ulContainerRef?.current?.offsetWidth){
@@ -72,6 +80,8 @@ const Coarusell = () => {
 		console.log('sliderPosition % items.length + 1:', sliderPosition % items.length + 1)
 	}, [sliderPosition])
 
+	// ====================================================
+
 	return (
 		<div className={styles.container}>
 			{/* Стрелка налево */}
@@ -89,7 +99,7 @@ const Coarusell = () => {
 					{items.map((item) => {
 						return (
 							<Card 
-								sliderPosition={sliderPosition}
+								sliderPosition={sliderPosition - items.length + 2}
 								img={item.img} 
 								title={item.title} 
 								link={item.link}
@@ -106,7 +116,7 @@ const Coarusell = () => {
 							
 							return(
 								<span 
-									className={styles.dot + (sliderPosition % items.length  === item.index ? 'bg-white ' : 'bg-zinc-400 ')} 
+									className={styles.dot + (items.length - sliderPosition - 1  === item.index ? 'bg-white ' : 'bg-zinc-400 ')} 
 									key={item.index + 'dot'}
 									data-index={item.index}></span>
 							)

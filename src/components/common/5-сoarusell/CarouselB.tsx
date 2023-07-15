@@ -20,20 +20,22 @@ const Coarusell = () => {
 
 	// ==== Functions ====================================
 
-		const twistSlider = (direction : string | null) => {
+		const twistSlider = (direction : string | null = 'next', toPosition : null | number = null) => {
 			if(!isTicking){
-			let position = sliderPosition
+				let position = toPosition || sliderPosition
 
-			if(direction === 'prev'){
-				position += 1;
-			}else if(direction === 'next'){
-				position -= 1;
-			}
-			// Что бы не было перебора но и небыло начала с нуля
-			if(position < 0){
-				position += cloneLen
-			}
-			position = position % cloneLen
+				if(!toPosition){
+					if(direction === 'prev'){
+						position += 1;
+					}else if(direction === 'next'){
+						position -= 1;
+					}
+					// Что бы не было перебора но и небыло начала с нуля
+					if(position < 0){
+						position += cloneLen
+					}
+					position = position % cloneLen
+				}
 
 			setSliderPosition(position)
 			setIsTicking(true)
@@ -46,6 +48,14 @@ const Coarusell = () => {
 			setUlWitdth(ulContainerRef.current.clientWidth)
 		}
 	}
+
+	const handleDotClick : React.MouseEventHandler<HTMLSpanElement> = (e) => {
+		const index : number | null = parseInt(e.currentTarget?.getAttribute('data-index') || '')
+
+		const cardPosition = items.length + 1 - (index || 0)
+		twistSlider('', cardPosition)
+	}
+
 
 
 	const sleep = (ms = 0) => {
@@ -133,8 +143,8 @@ const Coarusell = () => {
 									itemCount={cloneLen}
 									
 									img={item.img} 
-									title={item.title} 
-									// title={String(sliderPosition)} 
+									// title={item.title} 
+									title={String(sliderPosition)} 
 									link={item.link}
 									text={item.text}
 									sliderHeight={sliderHeight}
@@ -161,6 +171,7 @@ const Coarusell = () => {
 				{
 					items.map((item)=>{
 						let rationalIndex = (items.length - sliderPosition + 1) % items.length
+						
 
 						if (rationalIndex < 0){
 							rationalIndex += items.length
@@ -168,7 +179,8 @@ const Coarusell = () => {
 						
 						return(
 							<span 
-								className={styles.dot + ( rationalIndex === item.index ? 'bg-white ' : 'bg-zinc-400 ')} 
+								className={styles.dot + ( rationalIndex === item.index ? 'bg-white ' : 'bg-zinc-400 ')}
+								onClick={handleDotClick}
 								key={item.index + 'dot'}
 								data-index={item.index}></span>
 						)
@@ -185,7 +197,7 @@ const styles = {
 	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5",
 	div : "w- mx- overflow-hidden w-full lg:text-black ",
 	ul : "gap-8 relative overflow-hidden w-max " + sliderHeight,
-	btn : " text-white text-5xl font-bold w-10 h-10 rotate-45 z-10",
+	btn : " hidden md:block text-white text-5xl font-bold w-10 h-10 rotate-45 z-10",
 	btnLeft : " border-l-4 border-b-4 -mr-0 ",
 	btnRight : " border-t-4 border-r-4 -ml-0 ",
 	dot : "inline-block w-2 h-2 rounded-full cursor-pointer ",

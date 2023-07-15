@@ -109,80 +109,85 @@ const Coarusell = () => {
 	// ====================================================
 
 	return (
-		<div className={styles.container}>
-			{/* Стрелка налево */}
-			<div className="">
-				<button 
-					data-direction="prev"
-					className={styles.btn + styles.btnLeft} 
-					onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
-			</div>
+		<div className="">
+			<h3 className={styles.heading}>Our Works</h3>
+			<div className={styles.container}>
+				{/* Стрелка налево */}
+				<div className="">
+					<button 
+						data-direction="prev"
+						className={styles.btn + styles.btnLeft} 
+						onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
+				</div>
 
-			<div className={styles.div} ref={ulContainerRef}>
+				<div className={styles.div} ref={ulContainerRef}>
 
-				<ul className={styles.ul}>
-					{itemsClone.map((item, index) => {
-						return (
-							<Card 
-								sliderPosition={sliderPosition - cloneLen + 2}
-								disableTransition={disableTransition}
-								setDisableTransition={setDisableTransition}
-								setIsTicking={setIsTicking}
-								itemCount={cloneLen}
-								
-								img={item.img} 
-								title={item.title} 
-								// title={String(sliderPosition)} 
-								link={item.link}
-								text={item.text}
-								sliderHeight={sliderHeight}
-								parentWidth={ulWidth}
-								
-								key={index > 1 && index < cloneLen - 2 ? item.index : item.index + 'clone'} 
-							/>)
-					})}
-				</ul>
+					<ul className={styles.ul}>
+						{itemsClone.map((item, index) => {
+							return (
+								<Card 
+									sliderPosition={sliderPosition - cloneLen + 2}
+									disableTransition={disableTransition}
+									setDisableTransition={setDisableTransition}
+									setIsTicking={setIsTicking}
+									itemCount={cloneLen}
+									
+									img={item.img} 
+									title={item.title} 
+									// title={String(sliderPosition)} 
+									link={item.link}
+									text={item.text}
+									sliderHeight={sliderHeight}
+									parentWidth={ulWidth}
+									
+									key={index > 1 && index < cloneLen - 2 ? item.index : item.index + 'clone'} 
+								/>)
+						})}
+					</ul>
+				</div>
 
-				<div className="text-center space-x-2">
-					{
-						items.map((item)=>{
-							let rationalIndex = (items.length - sliderPosition + 1) % items.length
-
-							if (rationalIndex < 0){
-								rationalIndex += items.length
-							}
-							
-							return(
-								<span 
-									className={styles.dot + ( rationalIndex === item.index ? 'bg-white ' : 'bg-zinc-400 ')} 
-									key={item.index + 'dot'}
-									data-index={item.index}></span>
-							)
-						})
-					}
+				{/* DIV нужен что бы стрелка не обрезалась  */}
+				<div>
+					{/* Стрелка направо */}
+					<button 
+						data-direction="next"
+						className={styles.btn + styles.btnRight}
+						onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
 				</div>
 			</div>
 
-			{/* Стрелка направо */}
-			<div>
-				<button 
-					data-direction="next"
-					className={styles.btn + styles.btnRight}
-					onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
+			{/* Slider Dots */}
+			<div className="text-center space-x-2">
+				{
+					items.map((item)=>{
+						let rationalIndex = (items.length - sliderPosition + 1) % items.length
+
+						if (rationalIndex < 0){
+							rationalIndex += items.length
+						}
+						
+						return(
+							<span 
+								className={styles.dot + ( rationalIndex === item.index ? 'bg-white ' : 'bg-zinc-400 ')} 
+								key={item.index + 'dot'}
+								data-index={item.index}></span>
+						)
+					})
+				}
 			</div>
-			
 		</div>
 	)
 }
 
 
 const styles = {
-	container : "container my-4 mx-auto flex justify-center items-center gap-4 px-5",
-	div : "w- mx-4 overflow-hidden w-full lg:text-black ",
+	heading : "text-center text-3xl font-bold text-zinc-100 mb-6",
+	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5",
+	div : "w- mx- overflow-hidden w-full lg:text-black ",
 	ul : "gap-8 relative overflow-hidden w-max " + sliderHeight,
 	btn : " text-white text-5xl font-bold w-10 h-10 rotate-45 z-10",
-	btnLeft : " border-l-4 border-b-4 -mr-6 ",
-	btnRight : " border-t-4 border-r-4 -ml-6 ",
+	btnLeft : " border-l-4 border-b-4 -mr-0 ",
+	btnRight : " border-t-4 border-r-4 -ml-0 ",
 	dot : "inline-block w-2 h-2 rounded-full cursor-pointer ",
 }
 

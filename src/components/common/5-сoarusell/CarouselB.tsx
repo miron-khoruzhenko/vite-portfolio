@@ -7,23 +7,21 @@ const sliderHeight = 'h-60'
 
 const Coarusell = () => {
 
-	const itemsList = [...items.slice(1,3), ...items, ...items.slice(-2)]
+	const itemsClone = [ ...items.slice(-2), ...items, ...items.slice(0,2)]
+	const cloneLen = itemsClone.length
 
 	const ulContainerRef = useRef<HTMLInputElement>(null);
 
 	const [ulWidth, setUlWitdth] = useState(0);
-	const [sliderPosition, setSliderPosition] = useState(0)
+	const [intervalId, setIntervalId] = useState<NodeJS.Timer  | string | number | undefined>(0);
+	const [sliderPosition, setSliderPosition] = useState(items.length + 1)
 	const [isTicking, setIsTicking] = useState(false)
-	// const [disableTransition, setDisableTransition] = useState(false)
+	const [disableTransition, setDisableTransition] = useState(false)
 
 	// ==== Functions ====================================
 
-
 		const twistSlider = (direction : string | null) => {
 			if(!isTicking){
-			console.log(direction)
-
-			// TODO: сделай обработку негативных чисел и округление
 			let position = sliderPosition
 
 			if(direction === 'prev'){
@@ -33,24 +31,27 @@ const Coarusell = () => {
 			}
 			// Что бы не было перебора но и небыло начала с нуля
 			if(position < 0){
-				position += items.length
+				position += cloneLen
 			}
-			position = position % items.length
+			position = position % cloneLen
+
 			setSliderPosition(position)
 			setIsTicking(true)
 		}
 	}
 
+
 	const handleResize = () => {
 		if(ulContainerRef?.current?.offsetWidth){
 			setUlWitdth(ulContainerRef.current.clientWidth)
-			console.log(ulContainerRef.current.clientWidth)
 		}
 	}
+
 
 	const sleep = (ms = 0) => {
 		return new Promise((resolve) => setTimeout(resolve, ms));
 	};
+
 
 	// ==== useEffects ====================================
 
@@ -60,25 +61,50 @@ const Coarusell = () => {
 		}
 		addEventListener('resize', handleResize)
 
-		console.log('Coarusell rendered')
+		console.log('==== Coarusell Mounted ====================')
 
 		return ()=>{
 			removeEventListener('resize', handleResize)
+			console.log('xxxx Coarusell Unmounted xxxxxxxxxxxxxxxxxxxx')
+
 		}
 	}, [])
 
-	useEffect(()=>{
-		if(isTicking){
-			sleep(300).then(()=>{
-				setIsTicking(false)
-			})
+	useEffect(() => {
+		const id = setInterval(()=>{
+				twistSlider('next')
+			}, 3000)
+		setIntervalId(id)
+
+		return()=>{
+			clearInterval(id)
+			clearInterval(intervalId);
 		}
-	},[isTicking])
+	
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [sliderPosition, isTicking])
+	
 
 	useEffect(()=>{
-		console.log('sliderPosition:', sliderPosition)
-		console.log('sliderPosition % items.length + 1:', sliderPosition % items.length + 1)
-	}, [sliderPosition])
+		if(isTicking){
+			sleep(350).then(()=>{
+				if(sliderPosition === 1 || sliderPosition === cloneLen - 2){
+					const isLastCopy = sliderPosition === cloneLen - 2;
+
+					setDisableTransition(true)
+					
+					if (isLastCopy) {
+						setSliderPosition(2);
+					} else {
+						setSliderPosition(items.length + 1);
+					}
+				}
+					
+				// setIsTicking(false)
+			})
+		}
+	},[isTicking, cloneLen, sliderPosition])
+
 
 	// ====================================================
 
@@ -89,41 +115,52 @@ const Coarusell = () => {
 				<button 
 					data-direction="prev"
 					className={styles.btn + styles.btnLeft} 
-					// onClick={handleSliderLeftBtn}/>
 					onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
 			</div>
 
 			<div className={styles.div} ref={ulContainerRef}>
 
 				<ul className={styles.ul}>
-					{items.map((item) => {
+					{itemsClone.map((item, index) => {
 						return (
 							<Card 
-								sliderPosition={sliderPosition - items.length + 2}
+								sliderPosition={sliderPosition - cloneLen + 2}
+								disableTransition={disableTransition}
+								setDisableTransition={setDisableTransition}
+								setIsTicking={setIsTicking}
+								itemCount={cloneLen}
+								
 								img={item.img} 
 								title={item.title} 
+								// title={String(sliderPosition)} 
 								link={item.link}
 								text={item.text}
 								sliderHeight={sliderHeight}
 								parentWidth={ulWidth}
-								key={item.index} />)
+								
+								key={index > 1 && index < cloneLen - 2 ? item.index : item.index + 'clone'} 
+							/>)
 					})}
 				</ul>
 
 				<div className="text-center space-x-2">
 					{
 						items.map((item)=>{
+							let rationalIndex = (items.length - sliderPosition + 1) % items.length
+
+							if (rationalIndex < 0){
+								rationalIndex += items.length
+							}
 							
 							return(
 								<span 
-									className={styles.dot + (items.length - sliderPosition - 1  === item.index ? 'bg-white ' : 'bg-zinc-400 ')} 
+									className={styles.dot + ( rationalIndex === item.index ? 'bg-white ' : 'bg-zinc-400 ')} 
 									key={item.index + 'dot'}
 									data-index={item.index}></span>
 							)
 						})
 					}
 				</div>
-
 			</div>
 
 			{/* Стрелка направо */}

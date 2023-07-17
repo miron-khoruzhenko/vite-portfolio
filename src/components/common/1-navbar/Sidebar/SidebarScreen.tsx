@@ -36,8 +36,10 @@ const SidebarScreen = () => {
 		let timeoutId : NodeJS.Timeout;
 		if(isBurgerPressed){
 			setModeStyles(openMode)
+			document.body.style.position = 'fixed'
 		}else{
 			setModeStyles(closeMode)
+			document.body.style.position = 'static'
 		}
 
 		return () => {

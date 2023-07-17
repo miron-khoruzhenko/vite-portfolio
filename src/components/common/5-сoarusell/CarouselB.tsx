@@ -56,7 +56,16 @@ const Coarusell = () => {
 		twistSlider('', cardPosition)
 	}
 
+	const getRationalIndex = () => {
+		let rationalIndex = (items.length - sliderPosition + 1) % items.length
+						
 
+		if (rationalIndex < 0){
+			rationalIndex += items.length
+		}
+
+		return rationalIndex;
+	}
 
 	const sleep = (ms = 0) => {
 		return new Promise((resolve) => setTimeout(resolve, ms));
@@ -119,8 +128,8 @@ const Coarusell = () => {
 	// ====================================================
 
 	return (
-		<div className="">
-			<h3 className={styles.heading}>Our Works</h3>
+		<div className={styles.carousel}>
+			<h3 className={styles.heading + styles.headingAfter}>Our Works</h3>
 			<div className={styles.container}>
 				{/* Стрелка налево */}
 				<div className="">
@@ -141,14 +150,16 @@ const Coarusell = () => {
 									setDisableTransition={setDisableTransition}
 									setIsTicking={setIsTicking}
 									itemCount={cloneLen}
+									getRationalIndex={getRationalIndex}
 									
 									img={item.img} 
-									// title={item.title} 
-									title={String(sliderPosition)} 
+									title={item.title} 
+									// title={String(sliderPosition)} 
 									link={item.link}
 									text={item.text}
 									sliderHeight={sliderHeight}
 									parentWidth={ulWidth}
+									index={item.index}
 									
 									key={index > 1 && index < cloneLen - 2 ? item.index : item.index + 'clone'} 
 								/>)
@@ -170,16 +181,11 @@ const Coarusell = () => {
 			<div className="text-center space-x-2">
 				{
 					items.map((item)=>{
-						let rationalIndex = (items.length - sliderPosition + 1) % items.length
-						
-
-						if (rationalIndex < 0){
-							rationalIndex += items.length
-						}
+						const rationalIndex = getRationalIndex()
 						
 						return(
 							<span 
-								className={styles.dot + ( rationalIndex === item.index ? 'bg-white ' : 'bg-zinc-400 ')}
+								className={styles.dot + ( rationalIndex === item.index ? 'bg-zinc-800 dark:bg-zinc-300 border-0 ' : 'bg-zinc-300 dark:bg-zinc-700 ')}
 								onClick={handleDotClick}
 								key={item.index + 'dot'}
 								data-index={item.index}></span>
@@ -193,14 +199,16 @@ const Coarusell = () => {
 
 
 const styles = {
-	heading : "text-center text-3xl font-bold text-zinc-100 mb-6",
-	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5",
+	carousel: 'bg-zinc-100 py-4 dark:bg-transparent ',
+	heading : "text-center text-3xl font-bold dark:text-zinc-100 mb-6 ",
+	headingAfter : "after:block after:h-[2px] after:w-12 after:bg-zinc-300 after:my-2 after:mx-auto after:rounded-full ",
+	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5 ",
 	div : "w- mx- overflow-hidden w-full lg:text-black ",
 	ul : "gap-8 relative overflow-hidden w-max " + sliderHeight,
-	btn : " hidden md:block text-white text-5xl font-bold w-10 h-10 rotate-45 z-10",
+	btn : " hidden md:block text-white text-5xl font-bold w-10 h-10 rotate-45 z-10 border-zinc-500 dark:border-zinc-100",
 	btnLeft : " border-l-4 border-b-4 -mr-0 ",
 	btnRight : " border-t-4 border-r-4 -ml-0 ",
-	dot : "inline-block w-2 h-2 rounded-full cursor-pointer ",
+	dot : "inline-block w-2 h-2 rounded-full cursor-pointer border border-zinc-300 dark:border-0 ",
 }
 
 export default Coarusell

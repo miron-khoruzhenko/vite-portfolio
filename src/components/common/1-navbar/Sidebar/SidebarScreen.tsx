@@ -4,9 +4,6 @@ import NavbarLinks from "../NavbarLinks/NavbarLinks";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import Hamburger from "./Hamburger";
 
-// type SidebarProps = {
-// 	isButtonPressed : boolean,
-// }
 const SidebarScreen = () => {
 
 	const closeMode = "opacity-0 translate-x-full",
@@ -50,7 +47,7 @@ const SidebarScreen = () => {
 
 	return (
 		<>
-		<div className="block sm:hidden z-20">
+		<div className="block sm:hidden z-20 -mb-2">
 			<Hamburger isButtonPressed={isBurgerPressed} setIsButtonPressed={setIsBurgerPressed}/>
 		</div>
 

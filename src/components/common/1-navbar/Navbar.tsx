@@ -61,7 +61,7 @@ const Navbar = () => {
 					<span className= {styles.logoTitle}> Orinium </span>
 				</div>
 
-				<NavbarLinks mode={'x'}/>
+				<NavbarLinks mode={'horizontal'}/>
 
 				{/* Theme switcher and user icon */}
 				<ul className={styles.ul}>

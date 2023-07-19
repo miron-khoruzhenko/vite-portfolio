@@ -9,9 +9,9 @@ const NavbarLinks : React.FC<NavbarLinksProps> = ({mode}) => {
 	const styles = {
 		ul: "",
 	}
-	if (mode === 'y'){
+	if (mode === 'vertical'){
 		styles.ul = 'flex flex-col space-y-6 text-2xl '
-	}else if(mode === 'x'){
+	}else if(mode === 'horizontal'){
 		styles.ul = "flex space-x-4 max-sm:hidden "
 	}
 	return (

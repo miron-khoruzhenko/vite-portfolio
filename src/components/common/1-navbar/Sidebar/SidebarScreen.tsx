@@ -10,7 +10,7 @@ const SidebarScreen = () => {
 				openMode = "opacity-100 translate-x-0 ";
 
 	const styles = {
-		container : ` flex flex-col sm:hidden w-screen h-screen absolute top-0 left-0 justify-center items-center transition-all duration-700 z-10 `,
+		container : ` flex flex-col sm:hidden w-screen h-[100svh] absolute top-0 left-0 justify-center items-center transition-all duration-700 z-10 `,
 		containerBg : ' dark:bg-black backdrop-blur-sm dark:bg-opacity-80 bg-opacity-80 ',
 		div : "absolute bottom-5 right-5 scale-125",
 	}
@@ -26,6 +26,12 @@ const SidebarScreen = () => {
 			setIsBurgerPressed(false)
 			setModeStyles(closeMode)
 		}
+	}
+
+	const handleBurgerClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+		e.preventDefault()
+
+		setIsBurgerPressed(!isBurgerPressed)
 	}
 
 
@@ -47,15 +53,15 @@ const SidebarScreen = () => {
 
 	return (
 		<>
-		<div className="block sm:hidden z-20 -mb-2">
-			<Hamburger isButtonPressed={isBurgerPressed} setIsButtonPressed={setIsBurgerPressed}/>
+		<div className="block sm:hidden z-20 -mb-2" onClick={handleBurgerClick}>
+			<Hamburger isButtonPressed={isBurgerPressed}/>
 		</div>
 
 		<div 
 			className={styles.container + styles.containerBg + modeStyles}
 			onClick={handleClick}
 			>
-			<NavbarLinks mode={'y'}/>
+			<NavbarLinks mode={'vertical'}/>
 			<div className={styles.div}>
 				<ThemeSwitcher/>
 			</div>

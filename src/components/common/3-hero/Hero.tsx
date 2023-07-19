@@ -3,7 +3,7 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
 
 
 import { useEffect, useRef } from 'react';
-import KUTE from 'kute.js';
+// import KUTE from 'kute.js';
 
 
 const Hero = () => {
@@ -23,14 +23,14 @@ const Hero = () => {
 				<button className={styles.btn + styles.btn2 + styles.btnDark2}>Contact <FontAwesomeIcon icon={faPaperPlane} className='ml-2' /> </button>
 			</div>
 
-      <BlobAnimation/>
+      {/* <BlobAnimation/> */}
 		</div>
 	)
 }
 
 const styles = {
 	hero		: " h-screen w-full flex flex-col gap-12 justify-center items-center text-center relative overflow-hidden ",
-	headging: " font-bold text-6xl md:text-7xl z-10",
+	headging: " font-bold text-6xl md:text-7xl z-10 text-zinc-100",
 	descr		: " max-w-2xl p-2 text-md md:text-xl text-zinc-700 dark:text-zinc-400 z-10 ",
 	btn			: " w-32 py-2 rounded-md border border-zinc-300 transition-colors z-10 ",
 	btn1		: " bg-zinc-900 text-zinc-200 active:bg-zinc-800 z-10 ",
@@ -42,58 +42,58 @@ const styles = {
 	ball2		: " w-1/12 top-14 left-1/4 animate-moving-ball2",
 }
 
-const BlobAnimation = () => {
-  const svgRef = useRef(null);
+// const BlobAnimation = () => {
+//   const svgRef = useRef(null);
 
-  useEffect(() => {
-    const tween = KUTE.fromTo(
-      '#blob1',
-      { path: '#blob1' },
-      { path: '#blob2' },
-      { repeat: 999, duration: 3000, yoyo: true }
-    );
+//   useEffect(() => {
+//     const tween = KUTE.fromTo(
+//       '#blob1',
+//       { path: '#blob1' },
+//       { path: '#blob2' },
+//       { repeat: Infinity, duration: 3000, yoyo: true }
+//     );
 
-    tween.start();
+//     tween.start();
 
-    return () => {
-      tween.stop(); // Остановка анимации при размонтировании компонента
-    };
-  }, []);
+//     return () => {
+//       tween.stop(); // Остановка анимации при размонтировании компонента
+//     };
+//   }, []);
 
-	const color = "rgba(39, 39, 42, 0.3)"
+// 	const color = "rgba(39, 39, 42, 0.3)"
 
-  return (
-    <svg
-      ref={svgRef}
-      id="visual"
-      className="absolute scale-150"
-      viewBox="0 0 1300 300"
-      width="1300"
-      height="300"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      version="1.1"
-    >
-      <g transform="translate(654.8379837585063 141.36678347976093)">
-        <path
-          id="blob1"
-          d="M82.9 -87.3C96.1 -69.8 87.6 -34.9 81 -6.6C74.4 21.7 69.7 43.4 56.5 68.4C43.4 93.4 21.7 121.7 2 119.7C-17.7 117.7 -35.4 85.4 -55 60.4C-74.7 35.4 -96.3 17.7 -99.2 -2.8C-102 -23.3 -86 -46.7 -66.3 -64.2C-46.7 -81.7 -23.3 -93.3 5.8 -99.1C34.9 -104.9 69.8 -104.8 82.9 -87.3"
-          fill={color}
-        ></path>
-      </g>
-      <g
-        transform="translate(655.0535807126305 163.16242881119348)"
-        style={{ visibility: 'hidden' }}
-      >
-        <path
-          id="blob2"
-          d="M58.9 -54.7C82.4 -35.4 111.7 -17.7 114.3 2.6C116.9 22.9 92.7 45.7 69.2 59.2C45.7 72.7 22.9 76.9 1.6 75.2C-19.6 73.6 -39.1 66.1 -64.1 52.6C-89.1 39.1 -119.6 19.6 -124 -4.5C-128.5 -28.5 -107 -57 -82 -76.4C-57 -95.7 -28.5 -105.9 -5.4 -100.4C17.7 -95 35.4 -74 58.9 -54.7"
-          fill={color}
-        ></path>
-      </g>
-    </svg>
-  );
-};
+//   return (
+//     <svg
+//       ref={svgRef}
+//       id="visual"
+//       className="absolute scale-150"
+//       viewBox="0 0 1300 300"
+//       width="1300"
+//       height="300"
+//       xmlns="http://www.w3.org/2000/svg"
+//       xmlnsXlink="http://www.w3.org/1999/xlink"
+//       version="1.1"
+//     >
+//       <g transform="translate(654.8379837585063 141.36678347976093)">
+//         <path
+//           id="blob1"
+//           d="M82.9 -87.3C96.1 -69.8 87.6 -34.9 81 -6.6C74.4 21.7 69.7 43.4 56.5 68.4C43.4 93.4 21.7 121.7 2 119.7C-17.7 117.7 -35.4 85.4 -55 60.4C-74.7 35.4 -96.3 17.7 -99.2 -2.8C-102 -23.3 -86 -46.7 -66.3 -64.2C-46.7 -81.7 -23.3 -93.3 5.8 -99.1C34.9 -104.9 69.8 -104.8 82.9 -87.3"
+//           fill={color}
+//         ></path>
+//       </g>
+//       <g
+//         transform="translate(655.0535807126305 163.16242881119348)"
+//         style={{ visibility: 'hidden' }}
+//       >
+//         <path
+//           id="blob2"
+//           d="M58.9 -54.7C82.4 -35.4 111.7 -17.7 114.3 2.6C116.9 22.9 92.7 45.7 69.2 59.2C45.7 72.7 22.9 76.9 1.6 75.2C-19.6 73.6 -39.1 66.1 -64.1 52.6C-89.1 39.1 -119.6 19.6 -124 -4.5C-128.5 -28.5 -107 -57 -82 -76.4C-57 -95.7 -28.5 -105.9 -5.4 -100.4C17.7 -95 35.4 -74 58.9 -54.7"
+//           fill={color}
+//         ></path>
+//       </g>
+//     </svg>
+//   );
+// };
 
 const AnimatedBallOne = () => {
   return (

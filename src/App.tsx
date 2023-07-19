@@ -27,21 +27,3 @@ function App() {
 }
 
 export default App;
-
-// >
-//     {
-//       isReady ? 
-//       (<div className="dark:bg-zinc-900 dark:text-zinc-300 text-zinc-900">
-//         <BrowserRouter>
-//           <Navbar/>
-//             <Routes>
-//               <Route path="/" element={<Home/>} />
-//               <Route path="*" element={<PageNotFound/>} />
-
-//             </Routes>
-          
-//           <Footer/>
-//         </BrowserRouter>
-//       </div>) : (<Loader bg={'bg-white'}/>)
-//     }
-//     </>

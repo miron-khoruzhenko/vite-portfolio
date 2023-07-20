@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 type NavbarLinksProps = {
 	mode: string,
-}
+}	
 
 const NavbarLinks : React.FC<NavbarLinksProps> = ({mode}) => {
 	const styles = {

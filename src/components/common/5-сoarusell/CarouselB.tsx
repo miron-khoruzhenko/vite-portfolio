@@ -56,8 +56,9 @@ const Coarusell = () => {
 		twistSlider('', cardPosition)
 	}
 
-	const getRationalIndex = () => {
-		let rationalIndex = (items.length - sliderPosition + 1) % items.length
+	const getRationalIndex = (parentWidth = 1024) => {
+
+		let rationalIndex = (items.length - sliderPosition + (parentWidth >= 1024 ? 1 : 0)) % items.length
 						
 
 		if (rationalIndex < 0){
@@ -129,6 +130,7 @@ const Coarusell = () => {
 
 	return (
 		<div className={styles.carousel}>
+			<h4 className={styles.subheading}>Some of</h4>
 			<h3 className={styles.heading + styles.headingAfter}>Our Works</h3>
 			<div className={styles.container}>
 				{/* Стрелка налево */}
@@ -200,6 +202,7 @@ const Coarusell = () => {
 
 const styles = {
 	carousel: 'bg-zinc-100 py-4 dark:bg-transparent ',
+	subheading : 'text-center ',
 	heading : "text-center text-3xl font-bold dark:text-zinc-100 mb-6 ",
 	headingAfter : "after:block after:h-[2px] after:w-12 after:bg-zinc-300 after:my-2 after:mx-auto after:rounded-full ",
 	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5 ",

@@ -23,9 +23,6 @@ export const ThemeSwitcher = () => {
 			isDarkMode={isDarkMode} 
 			setDarkMode={setDarkMode}
 		>
-			{/* <FontAwesomeIcon
-				icon={faSun} 
-				className={"dark:opacity-0 dark:rotate-180 opacity-100 transition-all duration-300"}/> */}
 			<img src={sun} alt="" className='dark:opacity-0 dark:rotate-180 opacity-100 transition-all duration-300'/>
 			<FontAwesomeIcon 
 				icon={faMoon} 

@@ -11,7 +11,7 @@ function App() {
 
 
   return (
-    <div className="dark:bg-zinc-900 dark:text-zinc-300 text-zinc-900 w-screen overflow-x-hidden">
+    <div className="dark:bg-zinc-900 dark:text-zinc-300 text-zinc-900 w-full overflow-x-hidden">
         <BrowserRouter>
           <Navbar/>
           <Routes>

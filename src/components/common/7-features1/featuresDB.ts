@@ -1,9 +1,9 @@
-import {faPenNib, faGlobe, faUserPlus, faComments} from '@fortawesome/free-regular-svg-icons'
-import {faMagnifyingGlass, faArrowRight} from '@fortawesome/free-solid-svg-icons'
+import { faComments} from '@fortawesome/free-regular-svg-icons'
+import {faPenNib, faGlobe, faUserPlus, faMagnifyingGlass, faArrowRight} from '@fortawesome/free-solid-svg-icons'
 
 let index = 0
 
-const features = [
+const features = [	
 	{
 		index : index++,
 		title : 'Impressive Designs',
@@ -42,4 +42,6 @@ const features = [
 	},
 ]
 
+export const leftFeatureItems = features.slice(0, (features.length)/2);
+export const rightFeatureItems = features.slice((features.length)/2, features.length)
 export default features;

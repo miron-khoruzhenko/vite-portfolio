@@ -13,6 +13,8 @@ const SidebarScreen = () => {
 		container : ` flex flex-col sm:hidden w-screen h-[100svh] absolute top-0 left-0 justify-center items-center transition-all duration-700 z-10 `,
 		containerBg : ' dark:bg-black backdrop-blur-sm dark:bg-opacity-80 bg-opacity-80 ',
 		div : "absolute bottom-5 right-5 scale-125",
+		hamburger : "block sm:hidden z-20 -mb-2 relative ",
+		hamburgerPsu : "after:block after:absolute after:w-14 after:h-14 after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2"
 	}
 
 	const [modeStyles, setModeStyles] = useState('')
@@ -53,7 +55,7 @@ const SidebarScreen = () => {
 
 	return (
 		<>
-		<div className="block sm:hidden z-20 -mb-2" onClick={handleBurgerClick}>
+		<div className={styles.hamburger + styles.hamburgerPsu} onClick={handleBurgerClick}>
 			<Hamburger isButtonPressed={isBurgerPressed}/>
 		</div>
 

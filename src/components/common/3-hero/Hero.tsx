@@ -23,7 +23,7 @@ const Hero = () => {
 }
 
 const styles = {
-	hero		: " h-[100lvh] w-full flex flex-col gap-12 justify-center items-center text-center relative overflow-hidden ",
+	hero		: " h-[100lvh] w-screen flex flex-col gap-12 justify-center items-center text-center relative overflow-hidden ",
 	heading: " font-bold text-6xl md:text-7xl z-10 dark:text-zinc-100",
 	descr		: " max-w-2xl p-2 text-md md:text-xl text-zinc-700 dark:text-zinc-400 z-10 ",
 	btn			: " w-32 py-2 rounded-md border border-zinc-300 transition-colors z-10 ",

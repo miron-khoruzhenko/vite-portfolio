@@ -9,9 +9,9 @@ type CardProps = {
 
 	img: string,
 	title: string,
-	link: string, 
+	link: string,
 	text: string, 
-	sliderHeight: string,
+	// sliderHeight: string,
 	parentWidth: number,
 	index: number,
 

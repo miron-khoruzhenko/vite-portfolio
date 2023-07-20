@@ -2,7 +2,7 @@ import Card from "./Card"
 import { useEffect, useRef, useState } from "react"
 import items from "./itemsB"
 
-const sliderHeight = 'h-60'
+// const sliderHeight = 'h-60'
 // * Не все h- работают. Например h-15
 
 const Coarusell = () => {
@@ -159,7 +159,7 @@ const Coarusell = () => {
 									// title={String(sliderPosition)} 
 									link={item.link}
 									text={item.text}
-									sliderHeight={sliderHeight}
+									// sliderHeight={sliderHeight}
 									parentWidth={ulWidth}
 									index={item.index}
 									
@@ -207,7 +207,8 @@ const styles = {
 	headingAfter : "after:block after:h-[2px] after:w-12 after:bg-zinc-300 after:my-2 after:mx-auto after:rounded-full ",
 	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5 ",
 	div : "w- mx- overflow-hidden w-full lg:text-black ",
-	ul : "gap-8 relative overflow-hidden w-max " + sliderHeight,
+	// ul : "gap-8 relative overflow-hidden w-max " + sliderHeight,
+	ul : "gap-8 relative overflow-hidden w-max ",
 	btn : " hidden md:block text-white text-5xl font-bold w-10 h-10 rotate-45 z-10 border-zinc-500 dark:border-zinc-100",
 	btnLeft : " border-l-4 border-b-4 -mr-0 ",
 	btnRight : " border-t-4 border-r-4 -ml-0 ",

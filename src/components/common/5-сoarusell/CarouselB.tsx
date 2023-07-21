@@ -1,6 +1,7 @@
 import Card from "./Card"
 import { useEffect, useRef, useState } from "react"
 import items from "./itemsB"
+import global_styles from "../../../assets/styles/global_styles"
 
 // const sliderHeight = 'h-60'
 // * Не все h- работают. Например h-15
@@ -130,8 +131,8 @@ const Coarusell = () => {
 
 	return (
 		<div className={styles.carousel}>
-			<h4 className={styles.subheading}>Some of</h4>
-			<h3 className={styles.heading + styles.headingAfter}>Our Works</h3>
+			<h3 className={styles.subheading}>Some of</h3>
+			<h2 className={styles.heading}>Our Works</h2>
 			<div className={styles.container}>
 				{/* Стрелка налево */}
 				<div className="">
@@ -202,13 +203,12 @@ const Coarusell = () => {
 
 const styles = {
 	carousel: 'bg-zinc-100 py-4 dark:bg-transparent ',
-	subheading : 'text-center ',
-	heading : "text-center text-3xl font-bold dark:text-zinc-100 mb-6 ",
-	headingAfter : "after:block after:h-[2px] after:w-12 after:bg-zinc-300 after:my-2 after:mx-auto after:rounded-full ",
+	subheading : global_styles.sectionSubHeading,
+	heading : global_styles.combinedHeading + 'mb-12',
 	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5 ",
 	div : "w- mx- overflow-hidden w-full lg:text-black ",
 	// ul : "gap-8 relative overflow-hidden w-max " + sliderHeight,
-	ul : "gap-8 relative overflow-hidden w-max ",
+	ul : "gap-8 relative overflow-hidden w-max py-4 ",
 	btn : " hidden md:block text-white text-5xl font-bold w-10 h-10 rotate-45 z-10 border-zinc-500 dark:border-zinc-100",
 	btnLeft : " border-l-4 border-b-4 -mr-0 ",
 	btnRight : " border-t-4 border-r-4 -ml-0 ",

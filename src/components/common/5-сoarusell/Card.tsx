@@ -24,7 +24,7 @@ const Card = (props : CardProps) => {
 				cardWidth = Math.round(props.parentWidth / partCount) - margin;
 
 	const styles = {
-		li : `aspect-[16/10] bg-neutral-00 top-0 left-0 list-none text-5xl relative inline-block `,
+		li : `aspect-[16/10] bg-neutral-00 top-0 left-0 list-none text-5xl relative inline-block overflow-hidden shadow-lg shadow-zinc-400 dark:shadow-zinc-800 `,
 		active : 'scale-150 ',
 		container: 'absoulte w-full h-full inline-flex items-end justify-end relative ',
 		img : 'w-full h-full object-cover transition-opacity ',

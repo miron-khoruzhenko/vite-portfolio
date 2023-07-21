@@ -23,7 +23,7 @@ const Navbar = () => {
 		logo : 'flex justify-center items-center ',
 		logoTitle : "uppercase font-bold text-xl text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-50 transition-colors duration-300 cursor-pointer ",
 		ul : "flex items-center space-x-1 ",
-		themeSwitcher: "hidden sm:block",
+		themeSwitcher: "hidden sm:block select-none",
 		user : "text-black hidden sm:block aspect-square h-[22px] text-sm rounded-full text-center bg-white cursor-pointer ",
 		// hamburger: "block sm:hidden z-40",
 	}

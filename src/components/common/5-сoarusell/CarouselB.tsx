@@ -130,7 +130,7 @@ const Coarusell = () => {
 	// ====================================================
 
 	return (
-		<div className={styles.carousel}>
+		<section className={styles.carousel}>
 			<h3 className={styles.subheading}>Some of</h3>
 			<h2 className={styles.heading}>Our Works</h2>
 			<div className={styles.container}>
@@ -188,7 +188,7 @@ const Coarusell = () => {
 						
 						return(
 							<span 
-								className={styles.dot + ( rationalIndex === item.index ? 'bg-zinc-800 dark:bg-zinc-300 border-0 ' : 'bg-zinc-300 dark:bg-zinc-700 ')}
+								className={styles.dot + ( rationalIndex === item.index ? styles.dotActive : styles.dotInactive)}
 								onClick={handleDotClick}
 								key={item.index + 'dot'}
 								data-index={item.index}></span>
@@ -196,7 +196,7 @@ const Coarusell = () => {
 					})
 				}
 			</div>
-		</div>
+		</section>
 	)
 }
 
@@ -209,10 +209,12 @@ const styles = {
 	div : "w- mx- overflow-hidden w-full lg:text-black ",
 	// ul : "gap-8 relative overflow-hidden w-max " + sliderHeight,
 	ul : "gap-8 relative overflow-hidden w-max py-4 ",
-	btn : " hidden md:block text-white text-5xl font-bold w-10 h-10 rotate-45 z-10 border-zinc-500 dark:border-zinc-100",
-	btnLeft : " border-l-4 border-b-4 -mr-0 ",
-	btnRight : " border-t-4 border-r-4 -ml-0 ",
+	btn : " hidden md:block text-white text-5xl font-bold w-10 h-10 rotate-45 z-10 border-zinc-800 dark:border-zinc-100",
+	btnLeft : " border-l-4 border-b-4 -mr-0  ",
+	btnRight : " border-t-4 border-r-4 -ml-0  ",
 	dot : "inline-block w-2 h-2 rounded-full cursor-pointer border border-zinc-300 dark:border-0 ",
+	dotActive : "bg-zinc-800 dark:bg-zinc-300 border-0 ",
+	dotInactive : "bg-zinc-400 dark:bg-zinc-700 ",
 }
 
 export default Coarusell

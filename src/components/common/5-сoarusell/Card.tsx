@@ -54,8 +54,9 @@ const Card = (props : CardProps) => {
 			}}
 		>
 				<div className={styles.container}>
-					<div className="w-full h-full">
-						<img src={props.img} alt="" className={styles.img  + (props.getRationalIndex(props.parentWidth) === props.index ? '' : 'opacity-50 ')} />
+					<div className="w-full h-full bg-black">
+						<img src={props.img} alt="" 
+							className={styles.img  + (props.getRationalIndex(props.parentWidth) === props.index ? '' : 'opacity-60 ')} />
 					</div>
 					<div className={styles.descrBlock}>
 						<h5 className={styles.descrHeading}>{props.title}</h5>

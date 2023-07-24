@@ -4,17 +4,17 @@ import teamImg from '../../../assets/imgs/team.jpg'
 import global_styles from '../../../assets/styles/global_styles'
 
 const styles = {
-	features : 'container text-center my-28 mx-auto ',
+	features : 'container text-center my-28 mx-auto overflow-hidden ',
 	subheading : global_styles.sectionSubHeading,
 	heading : global_styles.combinedHeading,
 	contentBox : 'flex flex-col md:flex-row gap-8 mt-16',
-	img : 'hidden lg:block opacity-80 hover:opacity-100 transition-opacity w-full h-full object-cover rounded-2xl',
-	ul : 'flex flex-col gap-10 lg:gap-0 mx-4 justify-between text-left'
+	img : 'hidden lg:block opacity-80 hover:opacity-100 transition-opacity w-full h-full object-contain rounded-2xl',
+	ul : 'flex flex-col gap-10 lg:gap-0 mx-4 justify-between text-left',
 }
 const Feautres = () => {
 	return (
 		// 
-		<div className={styles.features}>
+		<section className={styles.features}>
 			<h3 className={styles.subheading}>Our Features</h3>
 			<h2 className={styles.heading}>Have a dream? Digitize it with us!</h2>
 
@@ -26,7 +26,10 @@ const Feautres = () => {
 						)
 					})}
 				</ul>
-				<img src={teamImg} alt="" className={styles.img} />
+				<div className="hidden xl:block overflow-hidden w-full">
+					<img src={teamImg} alt="" className={styles.img} />
+				</div>
+
 				<ul className={styles.ul}>
 					{rightFeatureItems.map((item)=>{
 						return (
@@ -35,7 +38,7 @@ const Feautres = () => {
 					})}
 				</ul>
 			</div>
-		</div>
+		</section>
 	)
 }
 

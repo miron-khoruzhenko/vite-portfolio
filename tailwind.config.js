@@ -8,8 +8,13 @@ export default {
   theme: {
     extend: {
       backgroundImage : {
-        card1 : 'url("./src/assets/imgs/1-meeting.jpg")',
-        upDownDark : 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)',
+        // card1 : 'url("./src/assets/imgs/1-meeting.jpg")',
+        abstract : 'linear-gradient(180deg, rgba(24, 24, 27, .95) 0%, rgba(24, 24, 27, .95) 100%), url("./src/assets/imgs/contact-us/abstract.jpg")',
+        darkcityMd  : 'linear-gradient(180deg, rgba(24, 24, 27, 1) 0%, rgba(24, 24, 27, .85) 100%), url("./src/assets/imgs/contact-us/city-md.jpg")',
+        darkcityLg  : 'linear-gradient(180deg, rgba(24, 24, 27, 1) 20%, rgba(24, 24, 27, .85) 100%), url("./src/assets/imgs/contact-us/city-lg.jpg")',
+        cityMd      : 'url("./src/assets/imgs9contact-us/city-md.jpg")',
+        cityLg      : 'url("./src/assets/imgs/contact-us/city-lg.jpg")',
+        upDownDark  : 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)',
       },
       animation : {
         'moving-ball1' : 'animBall1 30s linear infinite, rotateBall 30s linear infinite', 

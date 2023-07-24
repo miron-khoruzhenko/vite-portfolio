@@ -5,9 +5,15 @@
 @layer utilities {
 
 	.clip-image {clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);}
+	.clip-image2 {clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);}
 
 }
-
+// html{
+// 	overflow-x: hidden;
+// }
 // html{
 // 	background: #18181b;
 // }
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}

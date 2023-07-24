@@ -9,11 +9,11 @@ const AboutUs = () => {
 
 	}
 	return (
-		<div className="">
+		<section className="">
 			<h3 className={styles.subheading}>Who are we?</h3>
 			<h2 className={styles.heading}>Let me tell you</h2>
 			<CardContainer />
-		</div>
+		</section>
 	)
 }
 

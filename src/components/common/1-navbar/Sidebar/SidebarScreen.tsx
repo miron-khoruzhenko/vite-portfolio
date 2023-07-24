@@ -55,7 +55,7 @@ const SidebarScreen = () => {
 			<Hamburger isButtonPressed={isBurgerPressed}/>
 		</div>
 
-		<div 
+		<aside 
 			className={styles.container + styles.containerBg + modeStyles}
 			onClick={handleClick}
 			>
@@ -63,7 +63,7 @@ const SidebarScreen = () => {
 			<div className={styles.div}>
 				<ThemeSwitcher/>
 			</div>
-		</div>
+		</aside>
 		</>
 	)
 }

@@ -5,7 +5,7 @@ const Hero = () => {
 
 
 	return (
-		<div className={styles.hero}>
+		<section className={styles.hero}>
 			<h1 className={styles.heading}>Lorem ipsum <br /> dolor sit</h1>
 			<p className={styles.descr}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A perferendis exercitationem maiores sit eaque eligendi!</p>
 
@@ -18,7 +18,7 @@ const Hero = () => {
 				<button className={styles.btn + styles.btn2 + styles.btnDark2}>Contact <FontAwesomeIcon icon={faPaperPlane} className='ml-2' /> </button>
 			</div>
 
-		</div>
+		</section>
 	)
 }
 

@@ -15,8 +15,8 @@ const ContactUs = () => {
 
 	const styles = {
 		contactUs : 'flex flex-col justify-center ',
-		form : 'flex flex-col justify-center items-start gap-8 mx-10 py-20 shadow-md w-full transition-colors container ',
-		background : 'dark:bg-zinc-800 bg-cityMd lg:bg-cityLg dark:bg-darkcityMd lg:dark:bg-darkcityLg bg-bottom bg-cover bg-no-repeat',
+		form : 'flex flex-col justify-center items-start gap-8 mx-10 py-20 w-full transition-colors container ',
+		background : 'dark:bg-zinc-800 bg-cityMd lg:bg-cityLg dark:bg-darkcityMd lg:dark:bg-darkcityLg bg-bottom bg-cover bg-no-repeat bg-fixed',
 		heading : 'text-2xl font-bold text-zinc-200 mx-auto mb-7 ',
 		label : 'w-full ',
 		inputContainer : 'flex flex-col md:flex-row gap-8 w-full',
@@ -79,8 +79,8 @@ const ContactUs = () => {
 			</form>
 			<div className={styles.infoBlock}>
 				<InfoItem icon={'icon-phone'} title={'phone'} text={'+90 546 438 9457'} href='tel:+905464389457' />
-				<InfoItem icon={'icon-envelope'} title={'phone'} text={'+90 546 438 9457'} href='tel:+905464389457' />
-				<InfoItem icon={'icon-map-pin'} title={'phone'} text={'+90 546 438 9457'} href='tel:+905464389457' />
+				<InfoItem icon={'icon-envelope'} title={'e-mail'} text={'mironkhoruzhenko@gmail.com'} href='mailto:mironkhoruzhenko@gmail.com' />
+				<InfoItem icon={'icon-map-pin'} title={'address'} text={'Istanbul, Şişli'} />
 
 			</div>
 		</section>
@@ -101,7 +101,7 @@ const InfoItem = (props : InfoItemProps) => {
 			{/* <FontAwesomeIcon icon={props.icon} className='text-3xl'/> */}
 			<i className={props.icon + " icon + text-3xl "}></i>
 			<div className="">
-				<h3 className="capitalize">{props.title}</h3>
+				<h5 className="capitalize font-bold ">{props.title}</h5>
 				{ props.href ? 
 					<a href={props.href} className="">{props.text}</a> :
 					<p className="">{props.text}</p>

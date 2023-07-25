@@ -202,7 +202,7 @@ const Coarusell = () => {
 
 
 const styles = {
-	carousel: 'bg-zinc-100 py-4 dark:bg-transparent ',
+	carousel: 'bg-zinc-100 py-4 dark:bg-transparent my-20',
 	subheading : global_styles.sectionSubHeading,
 	heading : global_styles.combinedHeading + 'mb-12',
 	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5 ",

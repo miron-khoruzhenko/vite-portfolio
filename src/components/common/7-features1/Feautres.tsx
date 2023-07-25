@@ -4,7 +4,7 @@ import teamImg from '../../../assets/imgs/team.jpg'
 import global_styles from '../../../assets/styles/global_styles'
 
 const styles = {
-	features : 'container text-center my-28 mx-auto overflow-hidden ',
+	features : 'container text-center mt-28 mx-auto overflow-hidden ',
 	subheading : global_styles.sectionSubHeading,
 	heading : global_styles.combinedHeading,
 	contentBox : 'flex flex-col md:flex-row gap-8 mt-16',

@@ -24,7 +24,7 @@ const Card = (props : CardProps) => {
 				cardWidth = Math.round(props.parentWidth / partCount) - margin;
 
 	const styles = {
-		li : `aspect-[16/10] bg-neutral-00 top-0 left-0 list-none text-5xl relative inline-block overflow-hidden shadow-lg shadow-zinc-400 dark:shadow-zinc-800 `,
+		li : `aspect-[16/10] bg-neutral-00 top-0 left-0 list-none text-5xl relative inline-block overflow-hidden shadow-lg shadow-zinc-400 dark:shadow-zinc-800  `,
 		active : 'scale-150 ',
 		container: 'absoulte w-full h-full inline-flex items-end justify-end relative ',
 		img : 'w-full h-full object-cover transition-opacity ',
@@ -45,7 +45,7 @@ const Card = (props : CardProps) => {
 			style={{width: `${cardWidth}px`, 
 							margin: `0 ${Math.round(margin/2)}px`,
 							transform: `translate(${(cardWidth + margin) * props.sliderPosition}px)`,
-							transition: props.disableTransition ? 'transform 50ms step-end' : 'transform 300ms, opacity 300ms',
+							transition: props.disableTransition ? 'transform 50ms step-end' : 'transform 600ms, opacity 600ms',
 						}} 
 			onTransitionEnd={()=>{
 				if(props.disableTransition)

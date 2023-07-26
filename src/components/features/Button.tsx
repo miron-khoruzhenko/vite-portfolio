@@ -3,7 +3,7 @@ import React from 'react'
 type ButtonProps = {
     children : string,
     className : string,
-    btnStyle? : 'red' | 'white' | 'green',
+    btnStyle? : 'red' | 'white' | 'green' | 'black',
     type : "button" | "submit" | "reset" | undefined,
 }
 
@@ -19,10 +19,11 @@ export const Button = (props : ButtonProps) => {
         case 'green':
             styleBtn = 'border-emerald-500 text-emerald-500 before:bg-emerald-500 after:bg-emerald-500 hover:text-zinc-100 bg- '
             break;
-            
+                    
         case 'white':
         default:
-            styleBtn = 'border-zinc-100 text-zinc-100 before:bg-zinc-100 after:bg-zinc-100 hover:text-zinc-900 '
+            styleBtn = 'border-zinc-900 text-zinc-900 before:bg-zinc-900 after:bg-zinc-900 hover:text-zinc-100 '
+            styleBtn += 'dark:border-zinc-100 dark:text-zinc-100 dark:before:bg-zinc-100 dark:after:bg-zinc-100 dark:hover:text-zinc-900 '
             break
     }
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import global_styles from '../../../assets/styles/global_styles'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faMobileScreenButton, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+// import { faMobileScreenButton, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+// import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 import { Button } from '../../features/Button'
 
@@ -17,10 +17,10 @@ const ContactUs = () => {
 		contactUs : 'flex flex-col justify-center ',
 		form : 'flex flex-col justify-center items-start gap-8 mx-10 py-20 w-full transition-colors container ',
 		background : 'dark:bg-zinc-800 bg-cityMd lg:bg-cityLg dark:bg-darkcityMd lg:dark:bg-darkcityLg bg-bottom bg-cover bg-no-repeat bg-fixed',
-		heading : 'text-2xl font-bold text-zinc-200 mx-auto mb-7 ',
+		heading : 'text-2xl font-bold dark:text-zinc-100 mx-auto mb-7 ',
 		label : 'w-full ',
 		inputContainer : 'flex flex-col md:flex-row gap-8 w-full',
-		inputFields : 'w-full px-4 py-3 bg-white/60 dark:bg-zinc-900/60 border dark:border-zinc-600 dark:text-zinc-200 focus:outline-none ',
+		inputFields : 'w-full px-4 py-3 bg-white/60 dark:bg-zinc-900/60 border border-zinc-400 dark:border-zinc-600 dark:text-zinc-200 focus:outline-none ',
 		input : '',
 		textarea : 'resize-none h-36 ',
 		btnContainer : 'w-full flex justify-between',
@@ -96,15 +96,25 @@ type InfoItemProps = {
 }
 
 const InfoItem = (props : InfoItemProps) => {
+	const styles = {
+		infoItem : "flex justify-center items-center gap-5 px-12 mb-16",
+		icon : props.icon + " icon + text-3xl  ",
+		conc : "h-3/4 w-px bg-zinc-300",
+		title : "capitalize font-bold text-sm text-zinc-100 ",
+		text : "text-sm font-light ",
+	}
+
 	return(
-		<div className="flex ">
+		<div className={styles.infoItem}>
 			{/* <FontAwesomeIcon icon={props.icon} className='text-3xl'/> */}
-			<i className={props.icon + " icon + text-3xl "}></i>
+			<i className={styles.icon}></i>
+			<div className={styles.conc}></div>
+
 			<div className="">
-				<h5 className="capitalize font-bold ">{props.title}</h5>
+				<h5 className={styles.title}>{props.title}</h5>
 				{ props.href ? 
-					<a href={props.href} className="">{props.text}</a> :
-					<p className="">{props.text}</p>
+					<a href={props.href} className={styles.text}>{props.text}</a> :
+					<p className={styles.text}>{props.text}</p>
 				}
 			</div>
 		</div>

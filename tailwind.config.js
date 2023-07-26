@@ -9,11 +9,12 @@ export default {
     extend: {
       backgroundImage : {
         // card1 : 'url("./src/assets/imgs/1-meeting.jpg")',
-        abstract : 'linear-gradient(180deg, rgba(24, 24, 27, .95) 0%, rgba(24, 24, 27, .95) 100%), url("./src/assets/imgs/contact-us/abstract.jpg")',
+        
+
         darkcityMd  : 'linear-gradient(180deg, rgba(24, 24, 27, 1) 0%, rgba(24, 24, 27, .85) 100%), url("./src/assets/imgs/contact-us/city-md.jpg")',
         darkcityLg  : 'linear-gradient(180deg, rgba(24, 24, 27, 1) 20%, rgba(24, 24, 27, .85) 100%), url("./src/assets/imgs/contact-us/city-lg.jpg")',
-        cityMd      : 'url("./src/assets/imgs9contact-us/city-md.jpg")',
-        cityLg      : 'url("./src/assets/imgs/contact-us/city-lg.jpg")',
+        cityMd      : 'linear-gradient(180deg, rgba(255, 255, 255, .80) 10%, rgba(244, 244, 245, .80) 100%), url("./src/assets/imgs9contact-us/city-md.jpg")',
+        cityLg      : 'linear-gradient(180deg, rgba(255, 255, 255, .80) 10%, rgba(244, 244, 245, .80) 100%), url("./src/assets/imgs/contact-us/city-lg.jpg")',
         upDownDark  : 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)',
       },
       animation : {

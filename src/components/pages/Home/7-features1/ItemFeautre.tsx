@@ -9,9 +9,9 @@ interface ItemFeatureProps {
 
 const styles = {
 	li : 'flex justify-center items-start gap-6 group mb-8',
-	icon : "bg-blue-800/80 group-hover:bg-blue-800 dark:bg-violet-800 group-hover:dark:bg-violet-600 transition-colors text-white aspect-square w-10 rounded-md flex items-center justify-center",
+	icon : "bg-blue-800/80  dark:bg-violet-800 transition-colors text-white aspect-square w-10 rounded-md flex items-center justify-center",
 	title : "font-bold mb-2 text-lg text-zinc-800 dark:text-inherit",
-	descr : "text-md text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-700 group-hover:dark:text-zinc-200 transition-colors",
+	descr : "text-md text-zinc-500 dark:text-zinc-400 transition-colors",
 	
 }
 

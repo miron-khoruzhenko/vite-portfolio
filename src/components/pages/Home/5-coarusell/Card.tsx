@@ -28,11 +28,13 @@ const Card = (props : CardProps) => {
 		active : 'scale-150 ',
 		container: 'absoulte w-full h-full inline-flex items-end justify-end relative ',
 		img : 'w-full h-full object-cover transition-opacity ',
-		descrBlock : "absolute w-full h-full bg-black/0 opacity-0 hover:bg-black/80 hover:opacity-100 transition-colors flex flex-col justify-center items-center gap-4 text-center text-white ",
+		descrBlock : "absolute w-full h-full bg-black/0 opacity-0 hover:bg-black/80 hover:opacity-100 transition-all flex flex-col justify-center items-center gap-4 text-center text-white ",
 		descrHeading : 'text-xl ',
 		descrText : 'text-sm ',
 		btn: 'px-4 py-2 bg-black block text-base '
 	}
+
+	const isActive = props.getRationalIndex(props.parentWidth) === props.index
 
 	// useEffect(()=>{
 	// 	console.log(props.getRationalIndex() , props.index)
@@ -56,7 +58,7 @@ const Card = (props : CardProps) => {
 				<div className={styles.container}>
 					<div className="w-full h-full bg-black">
 						<img src={props.img} alt="" 
-							className={styles.img  + (props.getRationalIndex(props.parentWidth) === props.index ? '' : 'opacity-60 ')} />
+							className={styles.img  + (isActive ? '' : 'opacity-60 ')} />
 					</div>
 					<div className={styles.descrBlock}>
 						<h5 className={styles.descrHeading}>{props.title}</h5>

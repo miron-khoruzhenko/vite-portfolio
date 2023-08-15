@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 import Navbar from "./components/common/1-navbar/Navbar.tsx";
-import Footer from "./components/common/2-footer/Footer.tsx"
+// import Footer from "./components/common/2-footer/Footer.tsx"
 
 import Home from "./components/pages/Home/Home.tsx";
 import PageNotFound from "./components/pages/PageNotFound/PageNotFound.tsx";
@@ -19,7 +19,7 @@ function App() {
             <Route path="*" element={<PageNotFound/>} />
           </Routes>
             
-          <Footer/>
+          {/* <Footer/> */}
         </BrowserRouter>
       </div>
 

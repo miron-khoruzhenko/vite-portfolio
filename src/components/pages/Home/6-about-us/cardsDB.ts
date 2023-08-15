@@ -1,7 +1,7 @@
-import img1 from '../../../assets/imgs/1-cards/1-trends.jpg'
-import img2 from '../../../assets/imgs/1-cards/2-young.jpg'
-import img3 from '../../../assets/imgs/1-cards/3-support.jpg'
-import img4 from '../../../assets/imgs/1-cards/4-design.jpg'
+import img1 from '../../../../assets/imgs/1-cards/1-trends.jpg'
+import img2 from '../../../../assets/imgs/1-cards/2-young.jpg'
+import img3 from '../../../../assets/imgs/1-cards/3-support.jpg'
+import img4 from '../../../../assets/imgs/1-cards/4-design.jpg'
 
 let index = 0;
 

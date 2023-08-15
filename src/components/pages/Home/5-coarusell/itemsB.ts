@@ -1,7 +1,7 @@
-import img1 from '../../../assets/imgs/carousel/1-example.png'
-import img2 from '../../../assets/imgs/carousel/2-example.png'
-import img3 from '../../../assets/imgs/carousel/3-example.png'
-import img4 from '../../../assets/imgs/carousel/4-example.png'
+import img1 from '../../../../assets/imgs/carousel/1-example.png'
+import img2 from '../../../../assets/imgs/carousel/2-example.png'
+import img3 from '../../../../assets/imgs/carousel/3-example.png'
+import img4 from '../../../../assets/imgs/carousel/4-example.png'
 
 const imgArray = [img1, img2, img3, img4]
 

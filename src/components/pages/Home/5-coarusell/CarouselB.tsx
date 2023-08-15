@@ -1,7 +1,14 @@
 import Card from "./Card"
 import { useEffect, useRef, useState } from "react"
 import items from "./itemsB"
-import global_styles from "../../../assets/styles/global_styles"
+// import global_styles from "../../../assets/styles/global_styles"
+import global_styles from './../../../../assets/styles/global_styles'
+// import { Button } from "../../features/Button"
+import { Button } from './../../../features/Button'
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
 // const sliderHeight = 'h-60'
 // * Не все h- работают. Например h-15
@@ -196,13 +203,16 @@ const Coarusell = () => {
 					})
 				}
 			</div>
+			<div className="container mx-auto w-full flex justify-end px-4">
+				<Button className="">Explore More <FontAwesomeIcon icon={faArrowRight}/></Button>
+			</div>
 		</section>
 	)
 }
 
 
 const styles = {
-	carousel: 'bg-zinc-100 py-4 dark:bg-transparent my-20',
+	carousel: 'bg-zin-100 py-4 dark:bg-transparent my-20',
 	subheading : global_styles.sectionSubHeading,
 	heading : global_styles.combinedHeading + 'mb-12',
 	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5 ",

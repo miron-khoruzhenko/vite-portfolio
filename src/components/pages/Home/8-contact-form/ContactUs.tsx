@@ -1,12 +1,12 @@
 import React from 'react'
-import global_styles from '../../../assets/styles/global_styles'
+import global_styles from './../../../../assets/styles/global_styles'
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 // import { faMobileScreenButton, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 // import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
-import { Button } from '../../features/Button'
+import { Button } from './../../../features/Button'
 
 const ContactUs = () => {
 	const handleSubmit : React.FormEventHandler<HTMLFormElement> = (e) => {
@@ -14,9 +14,9 @@ const ContactUs = () => {
 	}
 
 	const styles = {
-		contactUs : 'flex flex-col justify-center ',
-		form : 'flex flex-col justify-center items-start gap-8 mx-10 py-20 w-full transition-colors container ',
-		background : 'dark:bg-zinc-800 bg-cityMd lg:bg-cityLg dark:bg-darkcityMd lg:dark:bg-darkcityLg bg-bottom bg-cover bg-no-repeat bg-fixed',
+		contactUs : 'flex flex-col justify-center items-center px-5 ',
+		form : 'flex flex-col justify-center items-start gap-8 py-20 w-full transition-colors container ',
+		background : 'dark:bg-zinc-800 bg-cityMd dark:bg-darkcityMd lg:bg-darkcityLg bg-bottom bg-cover bg-no-repeat bg-fixed',
 		heading : 'text-2xl font-bold dark:text-zinc-100 mx-auto mb-7 ',
 		label : 'w-full ',
 		inputContainer : 'flex flex-col md:flex-row gap-8 w-full',
@@ -24,11 +24,12 @@ const ContactUs = () => {
 		input : '',
 		textarea : 'resize-none h-36 ',
 		btnContainer : 'w-full flex justify-between',
-		infoBlock : 'flex justify-between w-full container mx-auto',
+		infoBlock : 'flex justify-between w-full container mx-auto text-zinc-300 ',
+		
 	}
 
 	return (
-		<section className={styles.contactUs + styles.background}>
+		<section className={'dark ' + styles.contactUs + styles.background}>
 			<form className={styles.form} onSubmit={handleSubmit}>
 				<h2 className={global_styles.combinedHeading + styles.heading}>Let's Get in Touch</h2>
 				

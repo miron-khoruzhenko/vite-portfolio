@@ -3,7 +3,7 @@ import Card from "./Card"
 
 const CardContainer = () => {
 	return (
-		<div className="flex flex-wrap container mx-auto gap-4 my-16">
+		<div className="flex flex-wrap container mx-auto gap-4 my-14">
 
 
 			{cards.map(card => {

@@ -1,14 +1,14 @@
 import {rightFeatureItems, leftFeatureItems } from './featuresDB'
 import ItemFeautre from './ItemFeautre'
-import teamImg from '../../../assets/imgs/team.jpg'
-import global_styles from '../../../assets/styles/global_styles'
+import teamImg from './../../../../assets/imgs/team.jpg'
+import global_styles from './../../../../assets/styles/global_styles'
 
 const styles = {
-	features : 'container text-center mt-28 mx-auto overflow-hidden ',
+	features : 'container text-center px-4 mb-40 mx-auto overflow-hidden ',
 	subheading : global_styles.sectionSubHeading,
 	heading : global_styles.combinedHeading,
 	contentBox : 'flex flex-col md:flex-row gap-8 mt-16',
-	img : 'hidden lg:block opacity-80 hover:opacity-100 transition-opacity w-full h-full object-contain rounded-2xl',
+	img : 'hidden lg:block transition-opacity w-full h-full object-cover rounded-2xl',
 	ul : 'flex flex-col gap-10 lg:gap-0 mx-4 justify-between text-left',
 }
 const Feautres = () => {
@@ -27,7 +27,7 @@ const Feautres = () => {
 					})}
 				</ul>
 				<div className="hidden xl:block overflow-hidden w-full">
-					<img src={teamImg} alt="" className={styles.img} />
+					<img src={teamImg} alt="Команда из четырех человек совместно работает над проектом стоя над столом " lang='ru' className={styles.img} />
 				</div>
 
 				<ul className={styles.ul}>

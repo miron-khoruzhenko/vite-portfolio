@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 type ButtonProps = {
-    children : string,
-    className : string,
+    children : ReactNode,
+    className? : string,
     btnStyle? : 'red' | 'white' | 'green' | 'black',
-    type : "button" | "submit" | "reset" | undefined,
+    type? : "button" | "submit" | "reset" | undefined,
 }
 
 export const Button = (props : ButtonProps) => {

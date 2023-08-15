@@ -5,7 +5,7 @@ const Hero = () => {
 
 
 	return (
-		<section className={styles.hero}>
+		<section className={styles.hero + styles.background}>
 			<h1 className={styles.heading}>Lorem ipsum <br /> dolor sit</h1>
 			<p className={styles.descr}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A perferendis exercitationem maiores sit eaque eligendi!</p>
 
@@ -23,8 +23,9 @@ const Hero = () => {
 }
 
 const styles = {
-	hero		: " h-[100lvh] w-screen flex flex-col gap-12 justify-center items-center text-center relative overflow-hidden ",
-	heading: " font-bold text-6xl md:text-7xl z-10 dark:text-zinc-100",
+	background : 'dark:bg-zinc-800 lg:dark:bg-darkcityLg bg-bottom bg-cover bg-no-repeat bg-fixed',
+	hero		: " h-[100lvh] w-screen flex flex-col gap-12 justify-center items-center text-center relative overflow-visible ",
+	heading	: " font-bold text-6xl md:text-7xl z-10 dark:text-zinc-100",
 	descr		: " max-w-2xl p-2 text-md md:text-xl text-zinc-700 dark:text-zinc-400 z-10 ",
 	btn			: " w-32 py-2 rounded-md border border-zinc-300 transition-colors z-10 ",
 	btn1		: " bg-zinc-900 text-zinc-200 active:bg-zinc-800 z-10 ",

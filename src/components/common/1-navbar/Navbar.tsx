@@ -18,7 +18,7 @@ const Navbar = () => {
 
 
 	const styles = {
-		nav : `w-full h-15 ${isScrolledDown ? ' bg-zinc-100 dark:bg-zinc-800 shadow-sm' : ''} fixed top-0 z-50 transition-all duration-300 `,
+		nav : `w-full h-15 ${isScrolledDown ? ' bg-zin-100 bg-white dark:bg-zinc-800 shadow-lg' : ''} fixed top-0 z-50 transition-all duration-300 `,
 		container : `container ${isScrolledDown ? 'py-2 px-4' : 'p-4' } transition-all mx-auto flex justify-between`,
 		logo : 'flex justify-center items-center ',
 		logoTitle : "uppercase font-bold text-xl text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-50 transition-colors duration-300 cursor-pointer ",

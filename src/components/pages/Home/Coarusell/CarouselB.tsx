@@ -2,9 +2,9 @@ import Card from "./Card"
 import { useEffect, useRef, useState } from "react"
 import items from "./itemsB"
 // import global_styles from "../../../assets/styles/global_styles"
-import global_styles from './../../../../assets/styles/global_styles'
+import global_styles from '../../../../assets/styles/global_styles'
 // import { Button } from "../../features/Button"
-import { Button } from './../../../features/Button'
+import { Button } from '../../../features/Buttons/Button1'
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"

@@ -13,9 +13,13 @@ const Hero = () => {
       <AnimatedBallTwo/>
 
 			<div className="flex gap-6">
-				<button className={styles.btn + styles.btn1 + styles.btnDark1}>Discover</button>
+				<button className={styles.btn + styles.btn1 + styles.btnDark1}>
+					Discover
+				</button>
 
-				<button className={styles.btn + styles.btn2 + styles.btnDark2}>Contact <FontAwesomeIcon icon={faPaperPlane} className='ml-2' /> </button>
+				<button className={styles.btn + styles.btn2 + styles.btnDark2}>
+					Contact <FontAwesomeIcon icon={faPaperPlane} className='ml-2' /> 
+				</button>
 			</div>
 
 		</section>

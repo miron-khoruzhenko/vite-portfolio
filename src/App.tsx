@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 
-import Navbar from "./components/common/1-navbar/Navbar.tsx";
+// import Navbar from "./components/common/1-navbar/Navbar.tsx";
 // import Footer from "./components/common/2-footer/Footer.tsx"
 
 import Home from "./components/pages/Home/Home.tsx";
+import Team from "./components/pages/Team/Team.tsx"
 import PageNotFound from "./components/pages/PageNotFound/PageNotFound.tsx";
 
 function App() {
@@ -13,9 +14,11 @@ function App() {
   return (
     <div className="dark:bg-zinc-900 dark:text-zinc-300 text-zinc-900 w-full overflow-x-hidden">
         <BrowserRouter>
-          <Navbar/>
+          {/* <Navbar/> */}
+          
           <Routes>
             <Route path="/" element={<Home/>} />
+            <Route path="/team" element={<Team/>} />
             <Route path="*" element={<PageNotFound/>} />
           </Routes>
             

@@ -10,13 +10,17 @@ export const links = {
 			name : "Home",
 			href : "/",
 		},
-		{
-			name : "Projects",
-			href : "/projects",
-		},
+		// {
+		// 	name : "Projects",
+		// 	href : "/projects",
+		// },
 		{
 			name : "About Us",
 			href : "/about",
+		},
+		{
+			name : "Team",
+			href : "/team",
 		},
 		{
 			name : "Contact",

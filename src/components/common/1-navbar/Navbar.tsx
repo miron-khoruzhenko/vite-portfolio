@@ -9,8 +9,11 @@ import Loader from '../4-loader/Loader.tsx'
 import SidebarScreen from './Sidebar/SidebarScreen.tsx'
 import NavbarLinks from './NavbarLinks/NavbarLinks.tsx'
 
+type NavProps = {
+	isSwitcherActive? : boolean,
+}
 
-const Navbar = () => {
+const Navbar = (props : NavProps) => {
 
 	const [isScrolledDown, setIsScrolledDown] = useState(false)
 	const [isLoaded, setIsLoaded] = useState(false)
@@ -21,9 +24,9 @@ const Navbar = () => {
 		nav : `w-full h-15 ${isScrolledDown ? ' bg-zin-100 bg-white dark:bg-zinc-800 shadow-lg' : ''} fixed top-0 z-50 transition-all duration-300 `,
 		container : `container ${isScrolledDown ? 'py-2 px-4' : 'p-4' } transition-all mx-auto flex justify-between`,
 		logo : 'flex justify-center items-center ',
-		logoTitle : "uppercase font-bold text-xl text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-50 transition-colors duration-300 cursor-pointer ",
+		logoTitle : "uppercase font-bold text-xl text-zinc-700 hover:text-zinc-900 dark:text-zinc-50 dark:hover:text-zinc-200 transition-colors duration-300 cursor-pointer ",
 		ul : "flex items-center space-x-1 ",
-		themeSwitcher: "hidden sm:block select-none",
+		themeSwitcher: `hidden ${props.isSwitcherActive ? 'sm:block ' : ''} select-none`,
 		user : "text-black hidden sm:block aspect-square h-[22px] text-sm rounded-full text-center bg-white cursor-pointer ",
 		// hamburger: "block sm:hidden z-40",
 	}
@@ -86,5 +89,8 @@ const Navbar = () => {
 	
 }
 
+Navbar.defaultProps = {
+	isSwitcherActive : true
+}
 
 export default Navbar;

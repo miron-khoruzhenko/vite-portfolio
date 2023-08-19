@@ -6,7 +6,7 @@ import global_styles from './../../../../assets/styles/global_styles'
 // import { faMobileScreenButton, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 // import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
-import { Button } from './../../../features/Button'
+import { Button } from '../../../features/Buttons/Button1'
 
 const ContactUs = () => {
 	const handleSubmit : React.FormEventHandler<HTMLFormElement> = (e) => {

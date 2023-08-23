@@ -1,12 +1,17 @@
-type switcherProp = {
-	isDarkMode: boolean;
-  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+type switcherProp = {	
   children: React.ReactNode;
 
 }
 
 const Switcher = (props : switcherProp)  => {
-	const {isDarkMode, setDarkMode} = props
+	const handleChange = () => {
+		if(document.body.classList.contains('dark')){
+			document.body.classList.remove('dark');
+		}else{
+			document.body.classList.add('dark');
+
+		}
+	}
 
 	const styles = {
 		label : "w-[52px] h-[30px] relative inline-block",
@@ -17,17 +22,17 @@ const Switcher = (props : switcherProp)  => {
 
 	return (
 		<label className={styles.label}>
-		<input 
-			type="checkbox" 
-			className={styles.input} 
-			onChange={()=>{setDarkMode(!isDarkMode)}}
-		/>
-			<span className={styles.span1}>
-				<span className={styles.span2}>
-					{props.children}
+			<input 
+				type="checkbox" 
+				className={styles.input} 
+				onChange={handleChange}
+			/>
+				<span className={styles.span1}>
+					<span className={styles.span2}>
+						{props.children}
+					</span>
 				</span>
-			</span>
-	</label>
+		</label>
 	)
 }
 export default Switcher;

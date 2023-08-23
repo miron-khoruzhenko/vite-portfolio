@@ -17,6 +17,12 @@ const SidebarScreen = () => {
 		hamburgerPsu : "after:block after:absolute after:w-14 after:h-14 after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2"
 	}
 
+	const linkStyles = {
+		links : "relative transition-colors dark:text-zinc-200 hover:text-zinc-700 dark:hover:text-zinc-50   ",
+		linksAfter : `after:block after:h-[2px] after:w-full after:my-1 after:transition-opacity after:absolute after:opacity-0 after:bg-zinc-500 dark:after:bg-zinc-200 hover:after:opacity-100 `,
+		activeLink : 'dark:text-zinc-50 '
+	}
+
 	const [modeStyles, setModeStyles] = useState('')
 	const [isBurgerPressed, setIsBurgerPressed] = useState(false)
 
@@ -59,7 +65,7 @@ const SidebarScreen = () => {
 			className={styles.container + styles.containerBg + modeStyles}
 			onClick={handleClick}
 			>
-			<NavbarLinks mode={'vertical'}/>
+			<NavbarLinks mode={'vertical'} linkStyles={linkStyles}/>
 			<div className={styles.div}>
 				<ThemeSwitcher/>
 			</div>

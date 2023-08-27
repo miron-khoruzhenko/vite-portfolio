@@ -2,11 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
 @layer utilities {
 
 	.clip-image {clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);}
 	.clip-image2 {clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);}
 
+}
+body{
+	font-family: 'Lato', sans-serif;
 }
 // html{
 // 	overflow-x: hidden;

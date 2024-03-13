@@ -19,6 +19,7 @@ type ButtonProps = {
 const styles = {
 	btn: 'cursor-pointer font-bold  ',
 	beforeBase : 'px-7 ',
+	afterBase : 'w-full h-full flex justify-center items-center ',
 	before: 'text-neutral-900 bg-zinc-100 ',
 	after: 'text-neutral-100 bg-neutral-900 ',
 }
@@ -32,7 +33,7 @@ const Button = (props : ButtonProps) => {
 			className={styles.btn + (props?.styles?.btn || '')}
 		>
 			<After 
-				className={props?.styles?.after || styles.after}>
+				className={styles.afterBase + (props?.styles?.after || styles.after)}>
 					{props.backContent}
 			</After>
 			<Before 

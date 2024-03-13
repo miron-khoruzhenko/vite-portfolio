@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const AboutMe = () => {
 
 	const styles = {
-		section : 'w-screen h-screen container mx-auto flex justify-center items-center gap-8 p-20 ',
+		section : 'w-screen h-screen container mx-auto flex justify-center items-center gap-8 p-28 ',
 		imgContainer : "w-2/5 h-full relative ",
 		img : 'w-full h-full object-cover transition-transform hover:translate-x-3 duration-500  ',
 		imgPseudo : 'after:block after:absolute after:top-0 after:left-0 after:-z-10 after:w-full after:h-full after:bg-neutral-500  after:opacity-10 after:translate-x-3 after:translate-y-3 hover:after:-translate-x-0 hover:after:-translate-y-3 hover:after:bg-blue-200 hover:after:opacity-100 after:transition-all after:duration-500 ',
@@ -25,18 +25,17 @@ const AboutMe = () => {
 
 		buttons: {
 			left:{
-				btn: '',
-				before: 'border border-blue-900 text-blue-950 ',
-				after: 'border border-blue-800 bg-blue-800 text-white',
+				btn: 'fontsemibold text-sm ',
+				// before: 'border border-blue-800 bg-blue-900 text-white ',
+				before: 'border border-zinc-800 bg-zinc-900 text-white ',
+				after: 'border border-zinc-900 text-zinc-950 ',
 			},
 			right : {
-				btn: ' ',
-				before: 'border border-blue-800 bg-blue-800 text-white ',
-				after: 'border border-blue-900 text-blue-950 ',
+				btn: 'font-semibold text-sm ',
+				before: 'border border-zinc-900 text-zinc-950 px-3 ',
+				after: 'border border-zinc-800 bg-zinc-900 text-white ',
 			}
 		}
-
-
 
 	}
 
@@ -59,7 +58,7 @@ const AboutMe = () => {
 				<div className={styles.socialContainer}>
 					{social.map((social)=> {
 						return (
-							<a href={social.link} className="">
+							<a href={social.link} className="" key={social.index}>
 								<div className={styles.socialDiv}>
 									<FontAwesomeIcon icon={social.icon} />
 								</div>
@@ -67,7 +66,7 @@ const AboutMe = () => {
 						)
 					})}
 				</div>
-				<div className="btn flex gap-4">
+				<div className="btn flex gap-2">
 					<Button
 						frontContent={'Contact Me'}
 						backContent={<i className='icon-envelope text-xl font-bold ' />}

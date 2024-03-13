@@ -19,6 +19,7 @@ const social = [
 		index: index++
 	},
 	
+	
 ]
 
 export default social;

@@ -15,7 +15,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@types/isotope-layout": "^3.0.9",
     "hamburgers": "^1.2.1",
+    "isotope-layout": "^3.0.6",
     "kute.js": "^2.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -24,7 +26,8 @@
     "react-spinners": "^0.13.8",
     "redux": "^4.2.1",
     "sass": "^1.63.3",
-    "styled-components": "^6.0.7"
+    "styled-components": "^6.0.7",
+    "swiper": "^10.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

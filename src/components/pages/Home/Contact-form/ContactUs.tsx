@@ -24,7 +24,7 @@ const ContactUs = () => {
 		input : '',
 		textarea : 'resize-none h-36 ',
 		btnContainer : 'w-full flex justify-between',
-		infoBlock : 'flex justify-between w-full container mx-auto text-zinc-300 ',
+		infoBlock : 'flex flex-wrap justify-start lg:flex-nowrap lg:justify-between w-full container mx-auto text-zinc-300 ',
 		
 	}
 

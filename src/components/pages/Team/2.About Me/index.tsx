@@ -1,21 +1,23 @@
 import React from 'react'
 import Button from '../../../features/Buttons/Button2'
 
-import img from '../../../../assets/imgs/testme2.jpg'
+import img from '../../../../assets/imgs/testme4.jpg'
 import social from './socialIcons'
 
 import global_styles from '../../../../assets/styles/global_styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { descrMyParagraphs, descrParagraphs } from './descrParagraphs'
+
 const AboutMe = () => {
 
 	const styles = {
-		section : 'w-screen h-screen container mx-auto flex justify-center items-center gap-8 p-28 ',
-		imgContainer : "w-2/5 h-full relative ",
+		section : 'w-screen container mx-auto grid md:flex justify-center items-center sm:grid-cols-1 gap-8 p-4 pt-14 md:p-14 lg:p-28 ',
+		imgContainer : "w-full md:w-2/5 h-full relative order-last md:order-first aspect-[5/6] ",
 		img : 'w-full h-full object-cover transition-transform hover:translate-x-3 duration-500  ',
-		imgPseudo : 'after:block after:absolute after:top-0 after:left-0 after:-z-10 after:w-full after:h-full after:bg-neutral-500  after:opacity-10 after:translate-x-3 after:translate-y-3 hover:after:-translate-x-0 hover:after:-translate-y-3 hover:after:bg-blue-200 hover:after:opacity-100 after:transition-all after:duration-500 ',
+		imgPseudo : 'after:block after:absolute after:top-0 after:left-0 after:-z-10 after:w-full after:h-full after:bg-neutral-500  after:opacity-10 after:translate-x-3 after:translate-y-3 hover:after:-translate-x-0 hover:after:-translate-y-3 hover:after:bg-amber-200 hover:after:opacity-100 after:transition-all after:duration-500 ',
 
-		textContainer : 'w-3/5 flex flex-col justify-start items-start gap-12 h-full ',
+		textContainer : 'w-full md:w-3/5 flex flex-col justify-start items-start gap-12 h-full ',
 		heading : 'text-zinc-800 relative text-3xl font-bold ',
 		paragrafContainer : 'space-y-6 ',
 		personalDescr : 'text-zinc-400 ',
@@ -46,15 +48,16 @@ const AboutMe = () => {
 			</div>
 
 			<div className={styles.textContainer}>
-				<h2 className={global_styles.leftPseudo + styles.heading}>I Am UI / UX Designer</h2>
+				<h2 className={global_styles.leftPseudo + styles.heading}>Whoami </h2>
+
 				<div className={styles.paragrafContainer}>
-					<p className={styles.personalDescr}>
-						I am <b>Miron Khoruzhenko</b> fusce quis volutpat porta, ut tincidunt eros est nec diam erat quis volutpat porta, neque massa, ut tincidunt eros est nec diam Fusce Fusce quis volutpat porta, ut tincidunt eros est nec diam erat quis volutpat porta, neque massa, ut tincidunt eros est nec diam Fusce Fusce quis volutpat porta, ut tincidunt eros est nec diam erat quis volutpat porta, neque massa, ut tincidunt eros est nec diam
-					</p>
-					<p className={styles.personalDescr}>
-						We’re full service which means we’ve got you covered on design and content right through to digital. You’ll form a lasting relationship with us, collaboration is central to everything we do. We’ll push you out of your comfort zone from time-to-time.
-					</p>
+					{descrParagraphs.map((descr, index) => {
+						return (
+							<p className={styles.personalDescr} key={index}>{descr}</p>
+						)
+					})}
 				</div>
+
 				<div className={styles.socialContainer}>
 					{social.map((social)=> {
 						return (

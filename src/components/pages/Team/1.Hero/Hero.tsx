@@ -16,7 +16,7 @@ const Hero = () => {
 		<section className={styles.hero}>
 			<div className={styles.heroBlur}>
 				<div className={styles.textContainer}>
-					<span className={styles.heading}>Hi, I'm Miron Khoruzhenko</span>
+					<span className={styles.heading}>Hi, I'm Miron</span>
 					<span className={styles.descr}>My passion lies in the seamless integration of coding and design, resulting in a perfect blend that brings websites to life.</span>
 					<div className={styles.btnContainer}>
 

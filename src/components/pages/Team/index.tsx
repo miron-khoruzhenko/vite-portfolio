@@ -1,13 +1,14 @@
 import {useEffect} from 'react'
 
-import Hero from './Hero/Hero'
+import Hero from './1.Hero/Hero'
 import Navbar from '../../common/1-navbar/Navbar'
-import AboutMe from './About Me/AboutMe'
-import Portfolio from './Portfolio/Portfolio'
-import Services from './MyServices/Services'
+import AboutMe from './2.About Me'
+import Portfolio from './4.Portfolio/Portfolio'
+import Services from './3.MyServices/Services'
 import Footer from '../../common/2-footer/Footer'
+import Counter from './5.Counter'
 
-const Team = () => {
+const About = () => {
 
 	useEffect(()=> {
 		if(document.body.classList.contains('dark')){
@@ -25,6 +26,7 @@ const Team = () => {
 			<Hero/>
 			<AboutMe/>
 			<Services/>
+			<Counter />
 			<Portfolio/>
 			<Footer />
 		</div>
@@ -33,4 +35,4 @@ const Team = () => {
 
 
 
-export default Team
+export default About

@@ -26,6 +26,7 @@ const Switcher = (props : switcherProp)  => {
 				type="checkbox" 
 				className={styles.input} 
 				onChange={handleChange}
+				// defaultChecked={true}
 			/>
 				<span className={styles.span1}>
 					<span className={styles.span2}>

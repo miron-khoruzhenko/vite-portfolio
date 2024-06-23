@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
+import { Link } from 'react-router-dom'
 
+import localRoutes from '../../../../assets/data/localRoutes'
 const Hero = () => {
 
 
@@ -13,13 +15,16 @@ const Hero = () => {
       <AnimatedBallTwo/>
 
 			<div className="flex gap-6">
+			<Link to={localRoutes.projects.href}>
 				<button className={styles.btn + styles.btn1 + styles.btnDark1}>
 					Discover
 				</button>
-
-				<button className={styles.btn + styles.btn2 + styles.btnDark2}>
-					Contact <FontAwesomeIcon icon={faPaperPlane} className='ml-2' /> 
-				</button>
+			</Link>
+				<Link to={localRoutes.contacts.href}>
+					<button className={styles.btn + styles.btn2 + styles.btnDark2}>
+						Contact <FontAwesomeIcon icon={faPaperPlane} className='ml-2' /> 
+					</button>
+				</Link>
 			</div>
 
 		</section>

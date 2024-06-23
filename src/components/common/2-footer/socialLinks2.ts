@@ -1,11 +1,11 @@
-import { faInstagram, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons"
+import { faInstagram, faLinkedin, faGithub, faTelegram, faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
 
 let index = 0
 
 const social = [
 	{
 		icon: faLinkedin,
-		link: 'https://www.twitter.com',
+		link: 'https://www.linkedin.com/in/miron-khoruzhenko-164085202/',
 		index: index++,
 	},
 	{
@@ -16,6 +16,11 @@ const social = [
 	{
 		icon: faInstagram,
 		link: 'https://www.instagram.com',
+		index: index++
+	},
+	{
+		icon: faTelegramPlane,
+		link: 'https://t.me/mironkhoruzhenko',
 		index: index++
 	},
 	

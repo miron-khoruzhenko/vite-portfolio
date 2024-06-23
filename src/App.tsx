@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 import Footer from "./components/common/2-footer/Footer.tsx"
 
 import Home from "./components/pages/Home/Home.tsx";
-import Team from "./components/pages/Team/Team.tsx"
+import About from "./components/pages/Team/index.tsx"
 import PageNotFound from "./components/pages/PageNotFound/PageNotFound.tsx";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
           
           <Routes>
             <Route path="/" element={<Home/>} />
-            <Route path="/team" element={<Team/>} />
+            <Route path="/about" element={<About/>} />
             <Route path="*" element={<PageNotFound/>} />
           </Routes>
             

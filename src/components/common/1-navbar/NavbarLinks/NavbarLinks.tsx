@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
-import { links } from './links.ts'
+// import { links } from './links.ts'
 import { Link, useLocation } from 'react-router-dom'
+
+import localRoutes from '../../../../assets/data/localRoutes.ts';
 
 type LinkStyles = {
   links: string;
@@ -29,7 +30,7 @@ const NavbarLinks : React.FC<NavbarLinksProps> = (props) => {
 	return (
 		<ul className={styles.ul + props.className}>
 
-		{links["to"].map((item, index) => {
+		{/* {links["to"].map((item, index) => {
 			return (
 				<li className="" key={index}>
 					<Link 
@@ -38,6 +39,21 @@ const NavbarLinks : React.FC<NavbarLinksProps> = (props) => {
 							{item.name}
 					</Link>
 				</li>)
+		
+		})} */}
+		{Object.keys(localRoutes).map((item: string, index) => {
+			const href = localRoutes[item as keyof typeof localRoutes]["href"]
+			const title = localRoutes[item as keyof typeof localRoutes]["name"]
+			console.log(item)
+			return (
+				<li className="" key={index}>
+					<Link 
+						to={href} 
+						className={linkStyles.links + linkStyles.linksAfter + (href === location.pathname ? linkStyles.activeLink : '')}>
+							{title}
+					</Link>
+				</li>
+				)
 		})}
 	</ul>
 	)

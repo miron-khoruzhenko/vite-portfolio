@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-regular-svg-icons'
 
 import ThemeSwitcher from './ThemeSwitcher/ThemeSwitcher.tsx'
 // import Sigup from './Sigup.tsx'
 import Loader from '../4-loader/Loader.tsx'
 import SidebarScreen from './Sidebar/SidebarScreen.tsx'
 import NavbarLinks from './NavbarLinks/NavbarLinks.tsx'
+import { Link } from 'react-router-dom'
+import localRoutes from '../../../assets/data/localRoutes.ts'
 
 type NavProps = {
 	isSwitcherActive? : boolean,
@@ -36,18 +36,6 @@ const Navbar = (props : NavProps) => {
 		themeSwitcher: `hidden sm:block ${props.isSwitcherActive ? ' ' : '-z-40 opacity-0 '} select-none`,
 		user : "text-black hidden sm:block aspect-square h-[22px] text-sm rounded-full  text-center bg-white cursor-pointer ",
 	}
-
-	// const styles = {
-	// 	nav : `w-full h-15 ${isScrolledDown ? `bg-white ${props.mode === 'allLight' ? '' : "dark:bg-zinc-800 " } shadow-lg` : ''} fixed top-0 z-50 transition-all duration-300 ${props.className} `,
-	// 	container : `container ${isScrolledDown ? 'py-2 px-4' : 'p-4' } transition-all mx-auto flex justify-between`,
-	// 	logo : 'flex justify-center items-center ',
-	// 	logoTitle : "uppercase font-bold text-xl text-zinc-700 hover:text-zinc-900 dark:text-zinc-50 dark:hover:text-zinc-200 transition-colors duration-300 cursor-pointer ",
-	// 	ul : "flex items-center space-x-1 ",
-	// 	navbarLinks : '',
-	// 	themeSwitcher: `hidden ${props.isSwitcherActive ? 'sm:block ' : ''} select-none`,
-	// 	user : "text-black hidden sm:block aspect-square h-[22px] text-sm rounded-full text-center bg-white cursor-pointer ",
-	// }
-	
 
 
 	if (isScrolledDown){
@@ -125,7 +113,7 @@ const Navbar = (props : NavProps) => {
 			<div className={styles.container}>
 
 				<div className={styles.logo}>
-					<span className= {styles.logoTitle}> Orinium </span>
+					<Link to={localRoutes.home.href} className= {styles.logoTitle}> Orinium </Link>
 				</div>
 
 				<NavbarLinks mode={'horizontal'} linkStyles={styles.navbarLinks} className={''}/>

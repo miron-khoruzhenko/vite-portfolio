@@ -17,7 +17,7 @@ type ButtonProps = {
 
 
 const styles = {
-	btn: 'cursor-pointer font-bold  ',
+	btn: 'cursor-pointer font-bold whitespace-nowrap ',
 	beforeBase : 'px-7 ',
 	afterBase : 'w-full h-full flex justify-center items-center ',
 	before: 'text-neutral-900 bg-zinc-100 ',

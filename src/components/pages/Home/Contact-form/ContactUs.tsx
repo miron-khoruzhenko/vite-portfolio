@@ -81,7 +81,7 @@ const ContactUs = () => {
 			<div className={styles.infoBlock}>
 				<InfoItem icon={'icon-phone'} title={'phone'} text={'+90 546 438 9457'} href='tel:+905464389457' />
 				<InfoItem icon={'icon-envelope'} title={'e-mail'} text={'mironkhoruzhenko@gmail.com'} href='mailto:mironkhoruzhenko@gmail.com' />
-				<InfoItem icon={'icon-map-pin'} title={'address'} text={'Istanbul, Şişli'} />
+				<InfoItem icon={'icon-map-pin'} title={'location'} text={'Istanbul, Turkey'} />
 
 			</div>
 		</section>

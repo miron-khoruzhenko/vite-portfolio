@@ -1,22 +1,11 @@
 import { Navigation, Pagination, A11y, Autoplay, EffectCoverflow } from 'swiper/modules';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
-
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-// import 'swiper/css/scrollbar';
-// import 'swiper/css/autoplay'
-
-import './sliderStyles.scss'
+import { useState } from 'react';
 
 
 import swiperItems from './swiperItems';
-import { useState } from 'react';
 
 const SwiperElement = () => {
-	const styles = {
-		Swiper: '',
-	}
 
 	const [activeSlideIndex, setActiveSlideIndex] = useState(0)
 
@@ -27,7 +16,7 @@ const SwiperElement = () => {
 	return (
 
 		<Swiper
-			className='container mx-auto '
+		className='container mx-auto '
 			effect='coverflow'
 
 			grabCursor={true}

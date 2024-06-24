@@ -20,6 +20,7 @@
     "hamburgers": "^1.2.1",
     "isotope-layout": "^3.0.6",
     "kute.js": "^2.2.4",
+    "node-sass": "^9.0.0",
     "react": "^18.3.1",
     "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
@@ -28,9 +29,9 @@
     "react-router-dom": "^6.23.1",
     "react-spinners": "^0.13.8",
     "redux": "^5.0.1",
-    "sass": "^1.77.5",
     "styled-components": "^6.1.11",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
@@ -44,6 +45,7 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "postcss": "^8.4.38",
     "react-slick": "^0.30.2",
+    "sass": "^1.77.5",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5",
     "vite": "^5.3.0"

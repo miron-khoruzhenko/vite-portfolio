@@ -4,10 +4,6 @@ import counter_items_db, { db_size } from "./counter_items_db"
 import CountUp from 'react-countup'
 
 const Counter = () => {
-	const styles = {
-		container: '',
-	}
-
 	return (
 		<section className="bg-count bg-fixed bg-counter_bg my-20">
 		{/* <!-- content --> */}

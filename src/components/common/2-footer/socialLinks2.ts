@@ -1,4 +1,4 @@
-import { faInstagram, faLinkedin, faGithub, faTelegram, faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
+import { faInstagram, faLinkedin, faGithub, faTelegramPlane } from "@fortawesome/free-brands-svg-icons"
 
 let index = 0
 

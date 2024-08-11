@@ -1,5 +1,5 @@
 import Hero from "./Hero/Hero"
-import Coarusell from "./Coarusell/oldVersions/CarouselB"
+// import Coarusell from "./Coarusell/oldVersions/CarouselB"
 import Feautres from "./Features1/Feautres"
 import AboutUs from "./About-us/AboutUs"
 import ContactUs from "./Contact-form/ContactUs"

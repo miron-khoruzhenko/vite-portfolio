@@ -1,232 +1,232 @@
-import Card from "../Card"
-import { useEffect, useRef, useState } from "react"
-import items from "../itemsB"
-// import global_styles from "../../../assets/styles/global_styles"
-import global_styles from '../../../../../assets/styles/global_styles'
-// import { Button } from "../../features/Button"
-import { Button } from '../../../../features/Buttons/Button1'
+// import Card from "../Card"
+// import { useEffect, useRef, useState } from "react"
+// import items from "../itemsB"
+// // import global_styles from "../../../assets/styles/global_styles"
+// import global_styles from '../../../../../assets/styles/global_styles'
+// // import { Button } from "../../features/Button"
+// import { Button } from '../../../../features/Buttons/Button1'
 
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
-// const sliderHeight = 'h-60'
-// * Не все h- работают. Например h-15
+// // const sliderHeight = 'h-60'
+// // * Не все h- работают. Например h-15
 
-const Coarusell = () => {
+// const Coarusell = () => {
 
-	const itemsClone = [ ...items.slice(-2), ...items, ...items.slice(0,2)]
-	const cloneLen = itemsClone.length
+// 	const itemsClone = [ ...items.slice(-2), ...items, ...items.slice(0,2)]
+// 	const cloneLen = itemsClone.length
 
-	const ulContainerRef = useRef<HTMLInputElement>(null);
+// 	const ulContainerRef = useRef<HTMLInputElement>(null);
 
-	const [ulWidth, setUlWitdth] = useState(0);
-	const [intervalId, setIntervalId] = useState<NodeJS.Timer  | string | number | undefined>(0);
-	const [sliderPosition, setSliderPosition] = useState(items.length + 1)
-	const [isTicking, setIsTicking] = useState(false)
-	const [disableTransition, setDisableTransition] = useState(false)
+// 	const [ulWidth, setUlWitdth] = useState(0);
+// 	const [intervalId, setIntervalId] = useState<NodeJS.Timer  | string | number | undefined>(0);
+// 	const [sliderPosition, setSliderPosition] = useState(items.length + 1)
+// 	const [isTicking, setIsTicking] = useState(false)
+// 	const [disableTransition, setDisableTransition] = useState(false)
 
-	// ==== Functions ====================================
+// 	// ==== Functions ====================================
 
-		const twistSlider = (direction : string | null = 'next', toPosition : null | number = null) => {
-			if(!isTicking){
-				let position = toPosition || sliderPosition
+// 		const twistSlider = (direction : string | null = 'next', toPosition : null | number = null) => {
+// 			if(!isTicking){
+// 				let position = toPosition || sliderPosition
 
-				if(!toPosition){
-					if(direction === 'prev'){
-						position += 1;
-					}else if(direction === 'next'){
-						position -= 1;
-					}
-					// Что бы не было перебора но и небыло начала с нуля
-					if(position < 0){
-						position += cloneLen
-					}
-					position = position % cloneLen
-				}
+// 				if(!toPosition){
+// 					if(direction === 'prev'){
+// 						position += 1;
+// 					}else if(direction === 'next'){
+// 						position -= 1;
+// 					}
+// 					// Что бы не было перебора но и небыло начала с нуля
+// 					if(position < 0){
+// 						position += cloneLen
+// 					}
+// 					position = position % cloneLen
+// 				}
 
-			setSliderPosition(position)
-			setIsTicking(true)
-		}
-	}
+// 			setSliderPosition(position)
+// 			setIsTicking(true)
+// 		}
+// 	}
 
 
-	const handleResize = () => {
-		if(ulContainerRef?.current?.offsetWidth){
-			setUlWitdth(ulContainerRef.current.clientWidth)
-		}
-	}
+// 	const handleResize = () => {
+// 		if(ulContainerRef?.current?.offsetWidth){
+// 			setUlWitdth(ulContainerRef.current.clientWidth)
+// 		}
+// 	}
 
-	const handleDotClick : React.MouseEventHandler<HTMLSpanElement> = (e) => {
-		const index : number | null = parseInt(e.currentTarget?.getAttribute('data-index') || '')
+// 	const handleDotClick : React.MouseEventHandler<HTMLSpanElement> = (e) => {
+// 		const index : number | null = parseInt(e.currentTarget?.getAttribute('data-index') || '')
 
-		const cardPosition = items.length + 1 - (index || 0)
-		twistSlider('', cardPosition)
-	}
+// 		const cardPosition = items.length + 1 - (index || 0)
+// 		twistSlider('', cardPosition)
+// 	}
 
-	const getRationalIndex = (parentWidth = 1024) => {
+// 	const getRationalIndex = (parentWidth = 1024) => {
 
-		let rationalIndex = (items.length - sliderPosition + (parentWidth >= 1024 ? 1 : 0)) % items.length
+// 		let rationalIndex = (items.length - sliderPosition + (parentWidth >= 1024 ? 1 : 0)) % items.length
 						
 
-		if (rationalIndex < 0){
-			rationalIndex += items.length
-		}
+// 		if (rationalIndex < 0){
+// 			rationalIndex += items.length
+// 		}
 
-		return rationalIndex;
-	}
+// 		return rationalIndex;
+// 	}
 
-	const sleep = (ms = 0) => {
-		return new Promise((resolve) => setTimeout(resolve, ms));
-	};
+// 	const sleep = (ms = 0) => {
+// 		return new Promise((resolve) => setTimeout(resolve, ms));
+// 	};
 
 
-	// ==== useEffects ====================================
+// 	// ==== useEffects ====================================
 
-	useEffect(()=>{
-		if(ulContainerRef?.current?.offsetWidth){
-			setUlWitdth(ulContainerRef.current.clientWidth)
-		}
-		addEventListener('resize', handleResize)
+// 	useEffect(()=>{
+// 		if(ulContainerRef?.current?.offsetWidth){
+// 			setUlWitdth(ulContainerRef.current.clientWidth)
+// 		}
+// 		addEventListener('resize', handleResize)
 
-		console.log('==== Coarusell Mounted ====================')
+// 		console.log('==== Coarusell Mounted ====================')
 
-		return ()=>{
-			removeEventListener('resize', handleResize)
-			console.log('xxxx Coarusell Unmounted xxxxxxxxxxxxxxxxxxxx')
+// 		return ()=>{
+// 			removeEventListener('resize', handleResize)
+// 			console.log('xxxx Coarusell Unmounted xxxxxxxxxxxxxxxxxxxx')
 
-		}
-	}, [])
+// 		}
+// 	}, [])
 
-	useEffect(() => {
-		const id = setInterval(()=>{
-				twistSlider('next')
-			}, 3000)
-		setIntervalId(id)
+// 	useEffect(() => {
+// 		const id = setInterval(()=>{
+// 				twistSlider('next')
+// 			}, 3000)
+// 		setIntervalId(id)
 
-		return()=>{
-			clearInterval(id)
-			clearInterval(intervalId);
-		}
+// 		return()=>{
+// 			clearInterval(id)
+// 			clearInterval(intervalId);
+// 		}
 	
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [sliderPosition, isTicking])
+// 		// eslint-disable-next-line react-hooks/exhaustive-deps
+// 	}, [sliderPosition, isTicking])
 	
 
-	useEffect(()=>{
-		if(isTicking){
-			sleep(350).then(()=>{
-				if(sliderPosition === 1 || sliderPosition === cloneLen - 2){
-					const isLastCopy = sliderPosition === cloneLen - 2;
+// 	useEffect(()=>{
+// 		if(isTicking){
+// 			sleep(350).then(()=>{
+// 				if(sliderPosition === 1 || sliderPosition === cloneLen - 2){
+// 					const isLastCopy = sliderPosition === cloneLen - 2;
 
-					setDisableTransition(true)
+// 					setDisableTransition(true)
 					
-					if (isLastCopy) {
-						setSliderPosition(2);
-					} else {
-						setSliderPosition(items.length + 1);
-					}
-				}
+// 					if (isLastCopy) {
+// 						setSliderPosition(2);
+// 					} else {
+// 						setSliderPosition(items.length + 1);
+// 					}
+// 				}
 					
-				// setIsTicking(false)
-			})
-		}
-	},[isTicking, cloneLen, sliderPosition])
+// 				// setIsTicking(false)
+// 			})
+// 		}
+// 	},[isTicking, cloneLen, sliderPosition])
 
 
-	// ====================================================
+// 	// ====================================================
 
-	return (
-		<section className={styles.carousel}>
-			<h3 className={styles.subheading}>Some of</h3>
-			<h2 className={styles.heading}>Our Works</h2>
-			<div className={styles.container}>
-				{/* Стрелка налево */}
-				<div className="">
-					<button 
-						data-direction="prev"
-						className={styles.btn + styles.btnLeft} 
-						onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
-				</div>
+// 	return (
+// 		<section className={styles.carousel}>
+// 			<h3 className={styles.subheading}>Some of</h3>
+// 			<h2 className={styles.heading}>Our Works</h2>
+// 			<div className={styles.container}>
+// 				{/* Стрелка налево */}
+// 				<div className="">
+// 					<button 
+// 						data-direction="prev"
+// 						className={styles.btn + styles.btnLeft} 
+// 						onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
+// 				</div>
 
-				<div className={styles.div} ref={ulContainerRef}>
+// 				<div className={styles.div} ref={ulContainerRef}>
 
-					<ul className={styles.ul}>
-						{itemsClone.map((item, index) => {
-							return (
-								<Card 
-									sliderPosition={sliderPosition - cloneLen + 2}
-									disableTransition={disableTransition}
-									setDisableTransition={setDisableTransition}
-									setIsTicking={setIsTicking}
-									itemCount={cloneLen}
-									getRationalIndex={getRationalIndex}
+// 					<ul className={styles.ul}>
+// 						{itemsClone.map((item, index) => {
+// 							return (
+// 								<Card 
+// 									sliderPosition={sliderPosition - cloneLen + 2}
+// 									disableTransition={disableTransition}
+// 									setDisableTransition={setDisableTransition}
+// 									setIsTicking={setIsTicking}
+// 									itemCount={cloneLen}
+// 									getRationalIndex={getRationalIndex}
 									
-									img={item.img} 
-									title={item.title} 
-									// title={String(sliderPosition)} 
-									link={item.link}
-									text={item.text}
-									// sliderHeight={sliderHeight}
-									parentWidth={ulWidth}
-									index={item.index}
+// 									img={item.img} 
+// 									title={item.title} 
+// 									// title={String(sliderPosition)} 
+// 									link={item.link}
+// 									text={item.text}
+// 									// sliderHeight={sliderHeight}
+// 									parentWidth={ulWidth}
+// 									index={item.index}
 									
-									key={index > 1 && index < cloneLen - 2 ? item.index : item.index + 'clone'} 
-								/>)
-						})}
-					</ul>
-				</div>
+// 									key={index > 1 && index < cloneLen - 2 ? item.index : item.index + 'clone'} 
+// 								/>)
+// 						})}
+// 					</ul>
+// 				</div>
 
-				{/* DIV нужен что бы стрелка не обрезалась  */}
-				<div>
-					{/* Стрелка направо */}
-					<button 
-						data-direction="next"
-						className={styles.btn + styles.btnRight}
-						onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
-				</div>
-			</div>
+// 				{/* DIV нужен что бы стрелка не обрезалась  */}
+// 				<div>
+// 					{/* Стрелка направо */}
+// 					<button 
+// 						data-direction="next"
+// 						className={styles.btn + styles.btnRight}
+// 						onClick={e => twistSlider(e.currentTarget.getAttribute('data-direction'))}/>
+// 				</div>
+// 			</div>
 
-			{/* Slider Dots */}
-			<div className="text-center space-x-2">
-				{
-					items.map((item)=>{
-						const rationalIndex = getRationalIndex()
+// 			{/* Slider Dots */}
+// 			<div className="text-center space-x-2">
+// 				{
+// 					items.map((item)=>{
+// 						const rationalIndex = getRationalIndex()
 						
-						return(
-							<span 
-								className={styles.dot + ( rationalIndex === item.index ? styles.dotActive : styles.dotInactive)}
-								onClick={handleDotClick}
-								key={item.index + 'dot'}
-								data-index={item.index}></span>
-						)
-					})
-				}
-			</div>
-			<div className="container mx-auto w-full flex justify-end px-4">
-				<Button className="">Explore More <FontAwesomeIcon icon={faArrowRight}/></Button>
-			</div>
-		</section>
-	)
-}
+// 						return(
+// 							<span 
+// 								className={styles.dot + ( rationalIndex === item.index ? styles.dotActive : styles.dotInactive)}
+// 								onClick={handleDotClick}
+// 								key={item.index + 'dot'}
+// 								data-index={item.index}></span>
+// 						)
+// 					})
+// 				}
+// 			</div>
+// 			<div className="container mx-auto w-full flex justify-end px-4">
+// 				<Button className="">Explore More <FontAwesomeIcon icon={faArrowRight}/></Button>
+// 			</div>
+// 		</section>
+// 	)
+// }
 
 
-const styles = {
-	carousel: 'bg-zin-100 py-4 dark:bg-transparent my-20',
-	subheading : global_styles.sectionSubHeading,
-	heading : global_styles.combinedHeading + 'mb-12',
-	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5 ",
-	div : "w- mx- overflow-hidden w-full lg:text-black ",
-	// ul : "gap-8 relative overflow-hidden w-max " + sliderHeight,
-	ul : "gap-8 relative overflow-hidden w-max py-4 ",
-	btn : " hidden md:block text-white text-5xl font-bold w-10 h-10 rotate-45 z-10 border-zinc-800 dark:border-zinc-100",
-	btnLeft : " border-l-4 border-b-4 -mr-0  ",
-	btnRight : " border-t-4 border-r-4 -ml-0  ",
-	dot : "inline-block w-2 h-2 rounded-full cursor-pointer border border-zinc-300 dark:border-0 ",
-	dotActive : "bg-zinc-800 dark:bg-zinc-300 border-0 ",
-	dotInactive : "bg-zinc-400 dark:bg-zinc-700 ",
-}
+// const styles = {
+// 	carousel: 'bg-zin-100 py-4 dark:bg-transparent my-20',
+// 	subheading : global_styles.sectionSubHeading,
+// 	heading : global_styles.combinedHeading + 'mb-12',
+// 	container : "my-2 mx-auto flex justify-center items-center gap-0 px-5 ",
+// 	div : "w- mx- overflow-hidden w-full lg:text-black ",
+// 	// ul : "gap-8 relative overflow-hidden w-max " + sliderHeight,
+// 	ul : "gap-8 relative overflow-hidden w-max py-4 ",
+// 	btn : " hidden md:block text-white text-5xl font-bold w-10 h-10 rotate-45 z-10 border-zinc-800 dark:border-zinc-100",
+// 	btnLeft : " border-l-4 border-b-4 -mr-0  ",
+// 	btnRight : " border-t-4 border-r-4 -ml-0  ",
+// 	dot : "inline-block w-2 h-2 rounded-full cursor-pointer border border-zinc-300 dark:border-0 ",
+// 	dotActive : "bg-zinc-800 dark:bg-zinc-300 border-0 ",
+// 	dotInactive : "bg-zinc-400 dark:bg-zinc-700 ",
+// }
 
-export default Coarusell
+// export default Coarusell
 
 

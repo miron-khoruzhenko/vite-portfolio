@@ -1,4 +1,4 @@
-import { Navigation, Pagination, A11y, Autoplay, EffectCoverflow } from 'swiper/modules';
+import { Pagination, A11y, Autoplay, EffectCoverflow } from 'swiper/modules';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import { useState } from 'react';
 

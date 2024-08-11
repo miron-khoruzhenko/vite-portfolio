@@ -1,15 +1,14 @@
-import Flickity from "react-flickity-component"
 // import Container from "../../common/Container"
 import items from "./itemsB"
 import global_styles from '../../../../assets/styles/global_styles'
 
 import { Button } from '../../../features/Buttons/Button1'
 // import Pagination from "./DotPagination"
-import NavButton from "./NavButton"
+// import NavButton from "./NavButton"
 
 
 
-import { useState, useRef, useCallback, useEffect } from "react"
+import { useState, useRef } from "react"
 
 import './slider.scss'
 
@@ -19,8 +18,8 @@ import { Link } from "react-router-dom"
 
 import localRoutes from "../../../../assets/data/localRoutes"
 
-import { Navigation, Pagination, A11y, Autoplay, Controller } from 'swiper/modules';
-import { Swiper, SwiperClass, SwiperSlide, SwiperRef } from 'swiper/react';
+import { Navigation, A11y, Autoplay, Controller } from 'swiper/modules';
+import { Swiper, SwiperSlide, SwiperRef } from 'swiper/react';
 
 import { twMerge as cn } from "tailwind-merge"
 

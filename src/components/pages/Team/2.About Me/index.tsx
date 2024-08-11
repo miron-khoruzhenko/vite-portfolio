@@ -1,4 +1,3 @@
-import React from 'react'
 import Button from '../../../features/Buttons/Button2'
 
 import img from '../../../../assets/imgs/testme4.jpg'
@@ -7,7 +6,7 @@ import social from './socialIcons'
 import global_styles from '../../../../assets/styles/global_styles'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { descrMyParagraphs, descrParagraphs } from './descrParagraphs'
+import {descrParagraphs } from './descrParagraphs'
 
 const AboutMe = () => {
 

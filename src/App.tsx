@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 // import Navbar from "./components/common/1-navbar/Navbar.tsx";
 // import Footer from "./components/common/2-footer/Footer.tsx"
 
-import Home from "./components/pages/Home/Home.tsx";
-import About from "./components/pages/Team/index.tsx"
-import PageNotFound from "./components/pages/PageNotFound/PageNotFound.tsx";
+import Home from "@/pages/Home";
+import About from "@pages/Team/"
+import PageNotFound from "@pages/PageNotFound/PageNotFound.tsx";
 
 function App() {
 

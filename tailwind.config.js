@@ -8,18 +8,6 @@ export default {
   theme: {
     extend: {
       backgroundImage : {
-        // card1 : 'url("./src/assets/imgs/1-meeting.jpg")',
-        
-
-        // darkcityMd  : 'linear-gradient(180deg, rgba(24, 24, 27, 1) 0%, rgba(24, 24, 27, .85) 100%), url("./src/assets/imgs/contact-us/city-md.jpg")',
-        // darkcityLg  : 'linear-gradient(180deg, rgba(24, 24, 27, 1) 20%, rgba(24, 24, 27, .85) 100%), url("./src/assets/imgs/contact-us/city-lg.jpg")',
-        
-        // counter_bg: 'linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(/src/assets/imgs/portfolio/counter-bg.jpg)',
-        
-
-        // cityMd      : 'linear-gradient(180deg, rgba(255, 255, 255, .80) 10%, rgba(244, 244, 245, .80) 100%), url("./src/assets/imgs/contact-us/city-md.jpg")',
-        // cityLg      : 'linear-gradient(180deg, rgba(255, 255, 255, .80) 10%, rgba(244, 244, 245, .80) 100%), url("./src/assets/imgs/contact-us/city-lg.jpg")',
-
         upDownDark  : 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)',
 
         // teamMe : 'linear-gradient(180deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, .6) 100%), url("./src/assets/imgs/me.jpg")',
@@ -28,6 +16,7 @@ export default {
         // abstract : 'linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949'
 
         counter_bg: 'linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(/imgs/counter-bg.jpg)',
+        testimonials: 'linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(/imgs/table.jpg)',
         cityMd      : 'linear-gradient(180deg, rgba(255, 255, 255, .80) 10%, rgba(244, 244, 245, .80) 100%), url("/imgs/city-md.jpg")',
         cityLg      : 'linear-gradient(180deg, rgba(255, 255, 255, .80) 10%, rgba(244, 244, 245, .80) 100%), url("/imgs/city-lg.jpg")',
         darkcityMd  : 'linear-gradient(180deg, rgba(24, 24, 27, 1) 0%, rgba(24, 24, 27, .85) 100%), url("/imgs/city-md.jpg")',

@@ -1,4 +1,3 @@
-import React from 'react'
 import blog_items from './blog_items'
 import { Link } from 'react-router-dom'
 
@@ -19,7 +18,7 @@ const Blog = () => {
 
 					{blog_items.map((item) => {
 						return (
-							<div className=" hidden first:block md:flex flex-col  shadow-xl shadow-zinc-300 basis-1/1 md:basis-1/2 lg:basis-1/3">
+							<div key={item.id} className=" hidden first:block md:flex flex-col  shadow-xl shadow-zinc-300 basis-1/1 md:basis-1/2 lg:basis-1/3">
 								<img src={item.img} alt="" className="" />
 								<div className="p-4">
 									<h3 className="mt-8 font-bold text-neutral-600 text-xl">{item.title}</h3>

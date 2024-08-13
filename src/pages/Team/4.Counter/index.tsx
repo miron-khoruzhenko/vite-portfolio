@@ -10,8 +10,8 @@ const Counter = () => {
 		<div className="container m-auto flex flex-col justify-center text-center">
 			{/* <!-- grid --> */}
 			<div 
-				className="grid grid-cols-1 md:grid-cols-[repeat(${db_size},_minmax(200px,_1fr)] gap-10 md:gap-6 my-10"
-				// style={{gridTemplateColumns: `repeat(${db_size}, minmax(200px, 1fr)`}}	
+				className="flex flex-col md:grid gap-10 md:gap-6 my-10"
+				style={{gridTemplateColumns: `repeat(${db_size}, minmax(200px, 1fr)`}}	
 			>
 				{
 					counter_items_db.map((item) => {

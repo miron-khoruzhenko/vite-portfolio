@@ -44,7 +44,6 @@ const NavbarLinks : React.FC<NavbarLinksProps> = (props) => {
 		{Object.keys(localRoutes).map((item: string, index) => {
 			const href = localRoutes[item as keyof typeof localRoutes]["href"]
 			const title = localRoutes[item as keyof typeof localRoutes]["name"]
-			console.log(item)
 			return (
 				<li className="" key={index}>
 					<Link 

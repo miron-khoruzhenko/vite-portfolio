@@ -9,13 +9,13 @@ import NavbarLinks from './NavbarLinks/NavbarLinks.tsx'
 import { Link } from 'react-router-dom'
 import localRoutes from '../../../assets/data/localRoutes.ts'
 
-type NavProps = {
+interface NavProps{
 	isSwitcherActive? : boolean,
 	variant? : 'dark' | 'light' | 'inherit' | 'allLight',
 	className? : string,
 }
 
-const Navbar = (props : NavProps) => {
+const Navbar = ({isSwitcherActive=true, variant, className} : NavProps) => {
 
 	const [isScrolledDown, setIsScrolledDown] = useState(false)
 	const [isLoaded, setIsLoaded] = useState(false)
@@ -23,7 +23,7 @@ const Navbar = (props : NavProps) => {
 
 
 	const styles = {
-		nav : `w-full h-15 fixed top-0 z-50 transition-all duration-300 ${props.className} `,
+		nav : `w-full h-15 fixed top-0 z-50 transition-all duration-300 ${className} `,
 		container : `container transition-all mx-auto flex justify-between items-center `,
 		logo : 'flex justify-center items-center ',
 		logoTitle : "uppercase font-bold text-xl transition-colors duration-300 cursor-pointer ",
@@ -33,7 +33,7 @@ const Navbar = (props : NavProps) => {
 			linksAfter : `after:block after:h-[2px] after:w-full after:my-1 after:transition-opacity after:absolute after:opacity-0 after:bg-zinc-500 dark:after:bg-zinc-200 hover:after:opacity-100 after:-bottom-2  `,
 			activeLink : 'dark:text-zinc-50  '
 		},
-		themeSwitcher: `hidden sm:block ${props.isSwitcherActive ? ' ' : '-z-40 opacity-0 '} select-none`,
+		themeSwitcher: `hidden sm:block ${isSwitcherActive ? ' ' : '-z-40 opacity-0 '} select-none`,
 		user : "text-black hidden sm:block aspect-square h-[22px] text-sm rounded-full  text-center bg-white cursor-pointer ",
 	}
 
@@ -42,7 +42,7 @@ const Navbar = (props : NavProps) => {
 		styles.nav += 'bg-white shadow-lg '
 		styles.container += 'py-2 px-4 '
 
-		switch (props.variant){
+		switch (variant){
 			case 'allLight': 
 				styles.nav += 'text-zinc-900 dark:text-zinc-900 dark:bg-white '
 				styles.navbarLinks.links += 'text-zinc-800 dark:text-zinc-800 hover:text-zinc-950 '
@@ -64,7 +64,7 @@ const Navbar = (props : NavProps) => {
 		styles.container += 'p-4 '
 		styles.nav += ' '
 
-		switch (props.variant){
+		switch (variant){
 			case 'allLight': 
 				styles.navbarLinks.links += 'text-zinc-200 dark:text-zinc-200 hover:text-zinc-100 !dark:hover:text-zinc-100 '
 				styles.navbarLinks.activeLink += 'text-zinc-50 '
@@ -94,14 +94,14 @@ const Navbar = (props : NavProps) => {
 	}
 
 	useEffect(() => {
-		console.log('Navbar: Mounted')
+		// console.log('Navbar: Mounted')
 		window.addEventListener('scroll', handleScroll);
 		handleScroll()
 		setIsLoaded(true)
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
-			console.log('Navbar: Unmounted')
+			// console.log('Navbar: Unmounted')
 		}
 
 	},[])
@@ -137,11 +137,6 @@ const Navbar = (props : NavProps) => {
   )
 
 	
-}
-
-Navbar.defaultProps = {
-	isSwitcherActive : true,
-	mode : 'inherit'
 }
 
 export default Navbar;

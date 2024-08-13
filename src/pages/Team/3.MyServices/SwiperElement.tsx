@@ -51,7 +51,7 @@ const SwiperElement = () => {
 			{
 				swiperItems.map((item) => {
 					return (
-						<SwiperSlide className=' bg-zinc-800 text-white rounded-none md:rounded-lg overflow-hidden min-h-full '>
+						<SwiperSlide key={item.index} className=' bg-zinc-800 text-white rounded-none md:rounded-lg overflow-hidden min-h-full '>
 							<div
 								className="md:h-96 min-h-[250px] w-full flex flex-col justify-end items-center relative p-8 pb-12 "
 								style={{ 

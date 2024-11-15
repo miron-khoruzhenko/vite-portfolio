@@ -43,7 +43,7 @@ const Testimonials = () => {
 			before:absolute before:left-1/2 before:-translate-x-1/2 before:-bottom-4">
 					Testimonials
 				</h2>
-				<p className={cn("text-neutral-400 text-sm md:text-base font-light mb-8 max-w-5xl min-h-[80px] transition-opacity duration-500 ", isVisible ? "opacity-100" : "opacity-0")}>
+				<p className={cn("text-neutral-400 text-sm md:text-base font-light mb-8 max-w-5xl min-h-[80px] transition-opacity duration-500 h-36 flex items-center justify-center ", isVisible ? "opacity-100" : "opacity-0")}>
 					{testimonial_items[active_index].text}
 				</p>
 				<div className={cn("text-white flex justify-center items-center w-full gap-5 transition-all duration-500 ", isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full")}>

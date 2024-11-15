@@ -14,14 +14,15 @@ import Blog from './7.Blog'
 const About = () => {
 
 	useEffect(()=> {
+		window.scrollTo(0, 0)
+
 		if(document.body.classList.contains('dark')){
 			document.body.classList.remove('dark')
 			return(()=>{
 				document.body.classList.add('dark')
 			})
 		}
-
-	})
+	}, [])
 	
 	return (
 		<div className=''>

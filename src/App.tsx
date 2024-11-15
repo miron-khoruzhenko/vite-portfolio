@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes} from "react-router-dom";
 // import Footer from "./components/common/2-footer/Footer.tsx"
 
 import Home from "@/pages/Home";
-import About from "@pages/Team/"
+import About from "@/pages/About"
 import PageNotFound from "@pages/PageNotFound/PageNotFound.tsx";
 
 function App() {
@@ -13,16 +13,13 @@ function App() {
 
   return (
     <div className="dark:bg-zinc-900 dark:text-zinc-300 text-zinc-900 w-full overflow-x-hidden">
-        <BrowserRouter>
-          {/* <Navbar/> */}
-          
+        <BrowserRouter>          
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/about" element={<About/>} />
             <Route path="*" element={<PageNotFound/>} />
           </Routes>
             
-          {/* <Footer/> */}
         </BrowserRouter>
       </div>
 
